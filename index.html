@@ -10,76 +10,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Spectral:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#1A1E38;
-  --ink-soft:#4A4F6B;
-  --ink-faint:#8A8FA6;
-  --paper:#E6E8E4;
-  --paper-hi:#F1F2EF;
-  --rule:#C7CAC4;
-  --live:#1F7A55;
-  --mark:#C8811F;
-  --measure:64ch;
+  --ink:#1A1E38; --ink-soft:#4A4F6B; --ink-faint:#8A8FA6;
+  --paper:#E6E8E4; --paper-hi:#F1F2EF; --rule:#C7CAC4;
+  --live:#1F7A55; --mark:#C8811F; --measure:64ch;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);
   font-family:Archivo,system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-size:17px;line-height:1.6;font-weight:400}
+  font-size:17px;line-height:1.6}
+body.locked{overflow:hidden}
 a{color:inherit}
 .wrap{max-width:1000px;margin:0 auto;padding:0 28px}
 
-/* masthead */
 .mast{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:34px 0 0;flex-wrap:wrap}
 .mast .who{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.06em;color:var(--ink-soft)}
 .mast nav{display:flex;gap:22px;font-size:14.5px}
 .mast nav a{text-decoration:none;color:var(--ink-soft);padding-bottom:2px;border-bottom:1px solid transparent}
 .mast nav a:hover{color:var(--ink);border-bottom-color:var(--mark)}
 
-/* hero */
 .hero{padding:clamp(56px,11vw,120px) 0 clamp(44px,7vw,76px)}
 .hero h1{font-family:Spectral,Georgia,serif;font-weight:200;
-  font-size:clamp(2.6rem,7.4vw,5.1rem);line-height:1.03;letter-spacing:-.018em;
-  margin:0 0 30px;max-width:17ch}
+  font-size:clamp(2.6rem,7.4vw,5.1rem);line-height:1.03;letter-spacing:-.018em;margin:0 0 30px;max-width:17ch}
 .hero h1 em{font-style:italic;font-weight:300}
 .hero p{max-width:var(--measure);color:var(--ink-soft);font-size:1.06rem;margin:0 0 18px}
 .hero p:last-of-type{margin-bottom:0}
-.standing{display:inline-flex;align-items:center;gap:10px;margin-top:34px;
-  padding:9px 16px 9px 13px;background:var(--paper-hi);border:1px solid var(--rule);
-  border-radius:100px;font-size:14.5px;color:var(--ink-soft);text-decoration:none}
+.standing{display:inline-flex;align-items:center;gap:10px;margin-top:34px;padding:9px 16px 9px 13px;
+  background:var(--paper-hi);border:1px solid var(--rule);border-radius:100px;
+  font-size:14.5px;color:var(--ink-soft);text-decoration:none}
 .standing:hover{border-color:var(--live);color:var(--ink)}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--live);flex:none;position:relative}
-.dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;
-  border:1px solid var(--live);opacity:0;animation:ping 2.8s ease-out infinite}
+.dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--live);opacity:0;animation:ping 2.8s ease-out infinite}
 @keyframes ping{0%{transform:scale(.6);opacity:.9}70%,100%{transform:scale(1.5);opacity:0}}
 @media (prefers-reduced-motion:reduce){.dot::after{animation:none}html{scroll-behavior:auto}}
 
-/* sections */
 .sec{padding:clamp(40px,6vw,66px) 0}
-.sec > h2{font-family:Archivo;font-weight:600;font-size:14px;margin:0 0 6px;color:var(--ink)}
+.sec > h2{font-family:Archivo;font-weight:600;font-size:14px;margin:0 0 6px}
 .sec > .lede{margin:0 0 34px;color:var(--ink-faint);font-size:14.5px;max-width:var(--measure)}
 
-/* track record */
 .row{display:grid;grid-template-columns:104px 1fr;gap:0 28px;padding:30px 0;border-top:1px solid var(--rule)}
-.row:last-child{border-bottom:1px solid var(--rule)}
+.row:last-of-type{border-bottom:1px solid var(--rule)}
 .when{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-faint);padding-top:4px;font-variant-numeric:tabular-nums}
 .what h3{font-family:Spectral,Georgia,serif;font-weight:400;font-size:1.5rem;line-height:1.2;margin:0 0 3px}
 .role{font-size:14px;color:var(--ink-faint);margin:0 0 12px}
 .what p{margin:0 0 14px;max-width:var(--measure);color:var(--ink-soft);font-size:.985rem}
-.what ul{margin:0 0 14px;padding-left:19px;max-width:var(--measure);color:var(--ink-soft);font-size:.985rem}
-.what li{margin-bottom:5px}
 .result{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--live);margin:0 0 12px}
 .result.closed{color:var(--ink-faint)}
 .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
 .tags span{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft);
   background:var(--paper-hi);border:1px solid var(--rule);border-radius:3px;padding:3px 8px}
 .links{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 16px}
-.links a{font-size:14.5px;text-decoration:none;border-bottom:1px solid var(--mark);padding-bottom:1px;color:var(--ink)}
+.links a{font-size:14.5px;text-decoration:none;border-bottom:1px solid var(--mark);padding-bottom:1px}
 .links a:hover{background:rgba(200,129,31,.12)}
 
-/* media */
-.clip{margin:0 0 8px;max-width:270px;border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:#0D0F1E}
-.clip iframe,.clip video{display:block;width:100%;aspect-ratio:9/16;border:0}
-.caption{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint);margin:0 0 16px}
+.opener{margin:4px 0 16px;padding:9px 17px;font-family:Archivo;font-size:14.5px;font-weight:500;
+  color:var(--paper-hi);background:var(--ink);border:0;border-radius:100px;cursor:pointer}
+.opener:hover{background:#2A3054}
+.opener::after{content:" →"}
+
 .media{display:flex;gap:10px;margin:0 0 16px;overflow-x:auto;padding-bottom:8px}
 .media::-webkit-scrollbar{height:6px}
 .media::-webkit-scrollbar-thumb{background:var(--rule);border-radius:3px}
@@ -88,43 +76,87 @@ a{color:inherit}
 .shot.wide{width:290px}
 .shot img{display:block;width:100%;height:auto}
 .shot:hover{border-color:var(--mark)}
+
+/* ===== detail panels (hidden until opened) ===== */
+.detail{display:none}
+
+.modal{position:fixed;inset:0;background:rgba(13,15,30,.55);z-index:60;
+  display:none;justify-content:center;align-items:flex-start;padding:0}
+.modal.open{display:flex}
+.sheet{background:var(--paper);width:100%;max-width:880px;min-height:100%;
+  padding:0 0 70px;overflow-y:auto;max-height:100vh}
+.sheet-top{position:sticky;top:0;background:var(--paper);z-index:2;
+  padding:20px 34px 0;display:flex;justify-content:flex-end}
+.x{background:none;border:0;font-size:15px;color:var(--ink-soft);cursor:pointer;font-family:Archivo;padding:6px}
+.x:hover{color:var(--ink)}
+.sheet-head{padding:6px 34px 0}
+.sheet-head .kicker{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-faint);margin:0 0 12px}
+.sheet-head h2{font-family:Spectral,Georgia,serif;font-weight:300;font-size:clamp(2rem,5vw,2.9rem);
+  line-height:1.05;margin:0 0 12px}
+.sheet-head .sub{color:var(--ink-soft);max-width:60ch;margin:0 0 20px;font-size:1.03rem}
+
+.tabbar{display:flex;gap:26px;padding:0 34px;border-bottom:1px solid var(--rule);
+  position:sticky;top:52px;background:var(--paper);z-index:2;overflow-x:auto}
+.tabbar button{background:none;border:0;padding:12px 0;font-family:Archivo;font-size:14.5px;
+  color:var(--ink-faint);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+.tabbar button:hover{color:var(--ink)}
+.tabbar button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--mark);font-weight:500}
+
+.panes{padding:30px 34px 0}
+.pane{display:none}
+.pane.on{display:block}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px 40px}
+.block h4{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--live);margin:0 0 8px;font-weight:500}
+.block p{margin:0 0 10px;color:var(--ink-soft);font-size:.97rem}
+.block ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:.97rem}
+.block li{margin-bottom:6px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{border:1px solid var(--rule);background:var(--paper-hi);border-radius:4px;padding:20px}
+.card .kicker{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--mark);margin:0 0 7px}
+.card h5{font-family:Archivo;font-weight:600;font-size:1rem;margin:0 0 7px}
+.card p{margin:0;color:var(--ink-soft);font-size:.93rem}
+.note{margin-top:28px;padding-top:18px;border-top:1px solid var(--rule);
+  color:var(--ink-faint);font-size:.9rem;max-width:70ch}
+
 .lb{position:fixed;inset:0;background:rgba(13,15,30,.94);display:none;
-  align-items:center;justify-content:center;padding:30px;z-index:50}
+  align-items:center;justify-content:center;padding:30px;z-index:80}
 .lb.open{display:flex}
 .lb img{max-width:100%;max-height:100%;border-radius:3px}
-.lb-close{position:absolute;top:14px;right:20px;background:none;border:0;
-  color:var(--paper);font-size:32px;line-height:1;cursor:pointer}
+.lb-close{position:absolute;top:14px;right:20px;background:none;border:0;color:var(--paper);font-size:32px;cursor:pointer}
 
-/* capability columns */
 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:38px}
 .col h3{font-family:Spectral,Georgia,serif;font-weight:400;font-size:1.3rem;margin:0 0 10px}
 .col p{margin:0 0 12px;color:var(--ink-soft);font-size:.96rem}
 .col ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:.96rem}
 .col li{margin-bottom:5px}
 
-/* now */
 .now{background:var(--ink);color:var(--paper-hi);border-radius:4px;padding:clamp(30px,5vw,50px)}
-.now h2{font-family:Archivo;font-weight:600;font-size:14px;margin:0 0 20px;color:var(--paper-hi);opacity:.62}
+.now h2{font-family:Archivo;font-weight:600;font-size:14px;margin:0 0 20px;opacity:.62}
 .now p{max-width:60ch;font-family:Spectral,Georgia,serif;font-weight:300;
   font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:1.46;margin:0 0 16px}
 .now p:last-child{margin-bottom:0}
 .now a{color:#F0C575}
 
-/* footer */
 footer{padding:60px 0 70px;border-top:1px solid var(--rule);margin-top:clamp(40px,6vw,66px)}
 .contact{display:flex;flex-wrap:wrap;gap:12px 34px;margin-bottom:26px}
 .contact a{font-size:1.02rem;text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:1px}
 .contact a:hover{border-bottom-color:var(--mark)}
 footer small{color:var(--ink-faint);font-size:13px;font-family:"IBM Plex Mono",monospace}
-a:focus-visible,.standing:focus-visible,.shot:focus-visible{outline:2px solid var(--mark);outline-offset:3px;border-radius:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offset:3px;border-radius:2px}
 
 @media (max-width:760px){
   body{font-size:16px}
   .wrap{padding:0 20px}
   .row{grid-template-columns:1fr;gap:0}
   .when{padding:0 0 8px}
-  .cols{grid-template-columns:1fr;gap:30px}
+  .cols,.grid2,.cards{grid-template-columns:1fr;gap:24px}
   .mast nav{gap:16px;font-size:13.5px}
+  .sheet-top{padding:16px 20px 0}
+  .sheet-head,.tabbar,.panes{padding-left:20px;padding-right:20px}
+  .tabbar{top:48px;gap:18px}
 }
 </style>
 </head>
@@ -133,11 +165,7 @@ a:focus-visible,.standing:focus-visible,.shot:focus-visible{outline:2px solid va
 
   <header class="mast">
     <div class="who">Lim Ze Ning · Singapore</div>
-    <nav>
-      <a href="#record">Track record</a>
-      <a href="#work">What I do</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <nav><a href="#record">Track record</a><a href="#work">What I do</a><a href="#contact">Contact</a></nav>
   </header>
 
   <section class="hero">
@@ -151,7 +179,18 @@ a:focus-visible,.standing:focus-visible,.shot:focus-visible{outline:2px solid va
     <h2>Track record</h2>
     <p class="lede">Every position I've taken, in reverse order. Most of them were not assigned to me.</p>
 
-    <!-- ========================= NEARBITES ========================= -->
+<!-- =================================================================
+     HOW TO EDIT A PROJECT
+     Each project is one <div class="row"> below. Inside it:
+       .when     the date column
+       .what     the summary shown on the page
+       .detail   the deep-dive that opens when someone clicks the button
+     Inside .detail, each <section data-tab="..."> becomes a TAB.
+     Add a tab by adding a section. Rename one by changing data-tab.
+     Everything is plain HTML — you never need to touch the script.
+     ================================================================= -->
+
+    <!-- ========== NEARBITES ========== -->
     <div class="row" id="nearbites">
       <div class="when">2026 — now</div>
       <div class="what">
@@ -159,104 +198,271 @@ a:focus-visible,.standing:focus-visible,.shot:focus-visible{outline:2px solid va
         <p class="role">Co-founder · NUS Orbital, Apollo level</p>
         <p class="result">Open · shipped, tested with real users, pursuing commercialisation</p>
         <p>A React Native app that redistributes surplus catered food at NUS. Organisers post leftovers with a GPS-captured location and a collection cutoff; students nearby get a push notification and a live map pin before the food goes cold.</p>
-        <ul>
-          <li>Built end to end — authentication, posting flow with GPS capture and reverse geocoding, live map, and a distance-based notification radius each student sets themselves.</li>
-          <li>Designed the Appwrite backend handling photo uploads, structured event documents and real-time state sync.</li>
-          <li>Added a community update layer so students can report whether food is still available, with the trust caveats shown plainly rather than hidden.</li>
-          <li>Validated with automated unit and integration tests plus a full UAT cycle, then rebuilt onboarding and posting around what students actually did.</li>
-        </ul>
-
-        <div class="links">
-          <a href="https://drive.google.com/file/d/1iC8shf_17mbhzZlu9ufofcW7aIlPl5CP/view?usp=sharing" target="_blank" rel="noopener">Technical write-up</a>
-        </div>
-
-        <!-- DEMO VIDEO — uncomment when you have a clip.
-             YouTube: upload Unlisted, paste the ID after /embed/
-        <div class="clip">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="nearbites demo" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <p class="caption">Posting a listing, then receiving one — 40 seconds</p>
-        -->
-
+        <button class="opener">Read the full case</button>
         <div class="media">
-          <button class="shot" data-full="assets/nearbites-home.png"><img src="assets/nearbites-home.png" alt="Home screen showing a live map and nearby food listings sorted by distance" loading="lazy"></button>
-          <button class="shot" data-full="assets/nearbites-listing.png"><img src="assets/nearbites-listing.png" alt="Listing detail with location, dietary tags, collection cutoff and community updates" loading="lazy"></button>
-          <button class="shot" data-full="assets/nearbites-range.png"><img src="assets/nearbites-range.png" alt="Notification radius selector set to 2.5km" loading="lazy"></button>
-          <button class="shot" data-full="assets/nearbites-onboarding.png"><img src="assets/nearbites-onboarding.png" alt="Onboarding screen collecting food preferences" loading="lazy"></button>
+          <button class="shot" data-full="assets/nearbites-home.png"><img src="assets/nearbites-home.png" alt="Home screen with live map and nearby listings sorted by distance" loading="lazy"></button>
+          <button class="shot" data-full="assets/nearbites-listing.png"><img src="assets/nearbites-listing.png" alt="Listing detail with dietary tags, cutoff and community updates" loading="lazy"></button>
+          <button class="shot" data-full="assets/nearbites-range.png"><img src="assets/nearbites-range.png" alt="Notification radius selector" loading="lazy"></button>
+          <button class="shot" data-full="assets/nearbites-onboarding.png"><img src="assets/nearbites-onboarding.png" alt="Onboarding collecting food preferences" loading="lazy"></button>
         </div>
+        <div class="tags"><span>React Native</span><span>Expo</span><span>Appwrite</span><span>Geolocation</span><span>Push</span></div>
 
-        <div class="tags"><span>React Native</span><span>Appwrite</span><span>JavaScript</span><span>Geolocation</span><span>Push</span><span>UAT</span></div>
+        <div class="detail"
+             data-kicker="Mobile · Full stack · 2026"
+             data-sub="A campus food-sharing app that pulls surplus listings, discovery and community updates into one place.">
+          <section data-tab="Overview">
+            <div class="grid2">
+              <div class="block">
+                <h4>The problem</h4>
+                <p>Surplus food from campus events was announced across scattered Telegram groups. If you weren't in the right chat at the right minute, you never heard. Organisers had no way to reach people nearby, and students had no way to tell whether a post from forty minutes ago still meant anything.</p>
+              </div>
+              <div class="block">
+                <h4>My contribution</h4>
+                <p>Two-person Orbital team. I covered the mobile app, the interactive map, the posting flow, preference-based onboarding and the backend integration.</p>
+              </div>
+              <div class="block">
+                <h4>What it does</h4>
+                <ul>
+                  <li>Map and feed views, sortable by distance or by how soon the food expires.</li>
+                  <li>Posting with GPS capture, manual pin placement and campus building lookup.</li>
+                  <li>A radius each student sets themselves, from 50m to 5km, that governs their alerts.</li>
+                  <li>Dietary and cutlery preferences captured at onboarding and used to filter listings.</li>
+                  <li>Community updates so students can report whether food is still there.</li>
+                </ul>
+              </div>
+              <div class="block">
+                <h4>What I learned</h4>
+                <p>The hard problems weren't the features. They were location accuracy, listings going stale faster than anyone updates them, and requests that get interrupted halfway. An app like this lives or dies on whether people trust what it tells them, and trust is mostly a data-freshness problem wearing a UI costume.</p>
+              </div>
+            </div>
+          </section>
+
+          <section data-tab="Engineering">
+            <div class="cards">
+              <div class="card">
+                <p class="kicker">Discover</p>
+                <h5>Mobile interface</h5>
+                <p>Expo Router screens covering feed, map, posting flow, profile and preferences, with state shared across them so a preference change reflows the feed immediately.</p>
+              </div>
+              <div class="card">
+                <p class="kicker">Connect</p>
+                <h5>Appwrite backend</h5>
+                <p>Authentication, structured listing documents, photo storage and real-time subscriptions, so a new post appears on other devices without a manual refresh.</p>
+              </div>
+              <div class="card">
+                <p class="kicker">Validate</p>
+                <h5>Server-side rules</h5>
+                <p>The service checks listing fields, location freshness and contribution limits rather than trusting the client, which matters the moment anyone has a reason to game the rewards.</p>
+              </div>
+              <div class="card">
+                <p class="kicker">Recover</p>
+                <h5>Interrupted requests</h5>
+                <p>Saved request identifiers and a transaction ledger let an interrupted submission resolve cleanly instead of double-posting a listing or double-awarding a reward.</p>
+              </div>
+            </div>
+            <p class="note">The current codebase is a pilot. Notification tuning, account management and native-device acceptance work remain before a public release.</p>
+          </section>
+
+          <section data-tab="Decisions">
+            <div class="grid2">
+              <div class="block">
+                <h4>Radius is set by the student</h4>
+                <p>A fixed alert radius would have been simpler. But someone in Kent Ridge halls and someone commuting in have completely different definitions of "nearby", and guessing wrong in either direction means either dead notifications or missed food. Handing over the slider costs one screen and removes the guess.</p>
+              </div>
+              <div class="block">
+                <h4>Community reports don't close a listing</h4>
+                <p>When a student reports food as finished, we surface it as an unverified report rather than auto-closing. One mistaken tap shouldn't be able to hide real food from everyone else, and a wrong "finished" is more costly than a stale "available".</p>
+              </div>
+              <div class="block">
+                <h4>Cutoffs are labelled as declarations</h4>
+                <p>The collection cutoff comes from the organiser, so the app says so in plain words. Presenting a guess as a fact is how an app stops being trusted the first time it's wrong.</p>
+              </div>
+              <div class="block">
+                <h4>Rewards are capped per day</h4>
+                <p>Contribution points are limited per event and per day. Any reward system on a student campus will be tested, usually within a week, and it is far easier to cap at the start than to unwind inflated balances later.</p>
+              </div>
+            </div>
+          </section>
+
+          <section data-tab="Links">
+            <div class="block">
+              <h4>Read more</h4>
+              <p><a href="https://drive.google.com/file/d/1iC8shf_17mbhzZlu9ufofcW7aIlPl5CP/view?usp=sharing" target="_blank" rel="noopener">Full technical write-up (PDF)</a></p>
+              <p>Developer · two-person Orbital team · Apollo · pilot, in continued development</p>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
 
-    <!-- ========================= BEIJING ANALYSIS ========================= -->
+    <!-- ========== BEIJING ========== -->
     <div class="row">
       <div class="when">2026</div>
       <div class="what">
         <h3>Beijing housing market analysis</h3>
         <p class="role">Data analysis · R and Tableau</p>
         <p class="result closed">Closed · academic project</p>
-        <p>Worked a large Beijing property transaction dataset into a recommendation on where to buy. The question was simple to ask and awkward to answer: does subway proximity actually command a premium, and which districts are safe to build in?</p>
-        <ul>
-          <li>Found a subway price premium in every district but one, and flagged the exception rather than smoothing it away.</li>
-          <li>Ran a Welch two-sample t-test in R to test whether a specific feature combination attracted more buyer interest, and reported the effect size alongside the p-value.</li>
-          <li>Built the visual argument in Tableau so each chart states one finding and its implication, instead of leaving the reader to infer it.</li>
-        </ul>
-
-        <div class="links">
-          <a href="https://docs.google.com/presentation/d/1bfyJROEC3g_tse7mvqVqp5GuNWRhATHE-YXNbc767io/edit?usp=sharing" target="_blank" rel="noopener">Full deck</a>
-        </div>
-
+        <p>Worked a large Beijing property transaction dataset into a recommendation on where to buy — testing whether subway proximity actually commands a premium, and which districts are defensible bets.</p>
+        <button class="opener">Read the full case</button>
         <div class="media">
-          <button class="shot wide" data-full="assets/beijing-subway.png"><img src="assets/beijing-subway.png" alt="Subway price gap by district, with the one negative district highlighted" loading="lazy"></button>
-          <button class="shot wide" data-full="assets/beijing-forecast.png"><img src="assets/beijing-forecast.png" alt="Median price forecast for the top five districts" loading="lazy"></button>
-          <button class="shot wide" data-full="assets/beijing-radar.png"><img src="assets/beijing-radar.png" alt="Radar chart comparing districts on spending, transactions and density" loading="lazy"></button>
+          <button class="shot wide" data-full="assets/beijing-subway.png"><img src="assets/beijing-subway.png" alt="Subway price gap by district" loading="lazy"></button>
+          <button class="shot wide" data-full="assets/beijing-forecast.png"><img src="assets/beijing-forecast.png" alt="Median price forecast for top five districts" loading="lazy"></button>
+          <button class="shot wide" data-full="assets/beijing-radar.png"><img src="assets/beijing-radar.png" alt="Radar chart comparing districts" loading="lazy"></button>
           <button class="shot wide" data-full="assets/beijing-ttest.png"><img src="assets/beijing-ttest.png" alt="Welch two-sample t-test output in R" loading="lazy"></button>
         </div>
-
         <div class="tags"><span>R</span><span>Tableau</span><span>Hypothesis testing</span><span>Forecasting</span></div>
+
+        <div class="detail"
+             data-kicker="Analytics · R · Tableau · 2026"
+             data-sub="Turning a large property transaction dataset into a defensible answer to where to buy.">
+          <section data-tab="Overview">
+            <div class="grid2">
+              <div class="block">
+                <h4>The question</h4>
+                <p>Where in Beijing should a buyer put money, and does the conventional wisdom about subway proximity actually hold once you look at the transactions rather than the marketing?</p>
+              </div>
+              <div class="block">
+                <h4>What we found</h4>
+                <ul>
+                  <li>Subway proximity commanded a premium in every district but one — and we reported the exception rather than trimming it.</li>
+                  <li>The top five districts all showed positive forecast trajectories, with Chaoyang and Fengtai the most stable.</li>
+                  <li>Haidian scored most evenly across spending power, transaction volume and community density, making it the least fragile choice.</li>
+                </ul>
+              </div>
+              <div class="block">
+                <h4>My contribution</h4>
+                <p>The statistical testing in R and the visual argument in Tableau. Every chart in the deck states one finding and its implication, so a reader doesn't have to reverse-engineer the point.</p>
+              </div>
+              <div class="block">
+                <h4>What I'd do differently</h4>
+                <p>The t-test is on observational data, so it establishes association, not cause. Properties with those features may simply sit in better locations. With more time I'd control for district and building age before making any claim about the features themselves.</p>
+              </div>
+            </div>
+          </section>
+
+          <section data-tab="Method">
+            <div class="cards">
+              <div class="card">
+                <p class="kicker">Define</p>
+                <h5>Feature flag</h5>
+                <p>Encoded a "winning" property profile in R — one bathroom, two living rooms, 60 to 89 square metres — as a binary variable to split the dataset on.</p>
+              </div>
+              <div class="card">
+                <p class="kicker">Test</p>
+                <h5>Welch two-sample t-test</h5>
+                <p>Compared buyer interest across the two groups without assuming equal variance. Roughly 2.57 more followers on average, with a confidence interval that stayed well clear of zero.</p>
+              </div>
+              <div class="card">
+                <p class="kicker">Report</p>
+                <h5>Effect size, not just p</h5>
+                <p>With a sample this large almost anything reaches significance, so the write-up leads with the size of the difference and the interval rather than the p-value.</p>
+              </div>
+              <div class="card">
+                <p class="kicker">Communicate</p>
+                <h5>One claim per chart</h5>
+                <p>Each Tableau slide carries an observation and an analysis line, so the finding and the "so what" travel together instead of relying on a presenter.</p>
+              </div>
+            </div>
+          </section>
+
+          <section data-tab="Links">
+            <div class="block">
+              <h4>Read more</h4>
+              <p><a href="https://docs.google.com/presentation/d/1bfyJROEC3g_tse7mvqVqp5GuNWRhATHE-YXNbc767io/edit?usp=sharing" target="_blank" rel="noopener">Full deck</a></p>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
 
-    <!-- ========================= TECHJAM ========================= -->
+    <!-- ========== TECHJAM ========== -->
     <div class="row">
       <div class="when">2026</div>
       <div class="what">
         <h3>TechJam</h3>
         <p class="role">Hackathon · team of [N]</p>
         <p class="result closed">Closed · did not place</p>
-        <p>[ONE OR TWO SENTENCES: what the problem was and what you built. Keep it concrete — "a tool that did X for Y" beats "an innovative platform".]</p>
-        <p>We didn't place. What I took from it was narrower and more useful than a prize: a much sharper sense of how much scope to cut in the first hour, which is most of why nearbites shipped on time three months later.</p>
-        <div class="links">
-          <a href="https://devpost.com/" target="_blank" rel="noopener">Devpost</a>
-        </div>
+        <p>[ONE OR TWO SENTENCES: the problem and what you built. Concrete beats impressive — "a tool that did X for Y".]</p>
+        <button class="opener">Read the full case</button>
         <div class="tags"><span>[stack]</span><span>[stack]</span></div>
+
+        <div class="detail"
+             data-kicker="Hackathon · 2026"
+             data-sub="[One line on what you built.]">
+          <section data-tab="Overview">
+            <div class="grid2">
+              <div class="block">
+                <h4>The brief</h4>
+                <p>[What the organisers asked for.]</p>
+              </div>
+              <div class="block">
+                <h4>What we built</h4>
+                <p>[What actually worked by the deadline — and what didn't.]</p>
+              </div>
+              <div class="block">
+                <h4>My part</h4>
+                <p>[Which pieces were yours.]</p>
+              </div>
+              <div class="block">
+                <h4>What I took from it</h4>
+                <p>We didn't place. The useful lesson was narrower than a prize: how much scope to cut in the first hour. That's most of why nearbites shipped on time three months later.</p>
+              </div>
+            </div>
+          </section>
+          <section data-tab="Links">
+            <div class="block">
+              <h4>Read more</h4>
+              <p><a href="https://devpost.com/" target="_blank" rel="noopener">Devpost submission</a></p>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
 
-    <!-- ========================= ENTERPRISE SINGAPORE ========================= -->
+    <!-- ========== ENTERPRISE SINGAPORE ========== -->
     <div class="row">
       <div class="when">2022 — 2023</div>
       <div class="what">
         <h3>Enterprise Singapore</h3>
         <p class="role">Network Intern, startup innovation</p>
         <p class="result closed">Closed · six months</p>
-        <p>Evaluated EntrePass applications, which meant reading founder pitch decks and deciding which businesses held up well enough to approve. It is the fastest way I know to learn the gap between a compelling story and a viable company.</p>
-        <ul>
-          <li>Ran the 2022 EntrePass partner reappointment process: independently gathered and verified information on 200+ partners, cleaned the data, and compiled the report the decision was made from.</li>
-          <li>Briefed programme partners on ESG's funding and support schemes.</li>
-          <li>Built the reporting in Excel and Power BI.</li>
-        </ul>
+        <p>Evaluated EntrePass applications — reading founder pitch decks and deciding which businesses held up well enough to approve. The fastest way I know to learn the gap between a compelling story and a viable company.</p>
+        <button class="opener">Read the full case</button>
         <div class="media">
           <button class="shot wide" data-full="assets/esg-switch.jpg"><img src="assets/esg-switch.jpg" alt="At SWITCH, Singapore Week of Innovation and Technology" loading="lazy"></button>
           <button class="shot wide" data-full="assets/esg-office.jpg"><img src="assets/esg-office.jpg" alt="With the Enterprise Singapore team" loading="lazy"></button>
           <button class="shot wide" data-full="assets/esg-team.jpg"><img src="assets/esg-team.jpg" alt="Team dinner during the internship" loading="lazy"></button>
         </div>
         <div class="tags"><span>Power BI</span><span>Excel</span><span>Due diligence</span><span>Partner management</span></div>
+
+        <div class="detail"
+             data-kicker="Government · Startup innovation · 2022"
+             data-sub="Six months inside the agency that decides which founders get to build here.">
+          <section data-tab="Overview">
+            <div class="grid2">
+              <div class="block">
+                <h4>The role</h4>
+                <p>Sat with the team handling EntrePass, the pass that lets foreign founders base a company in Singapore. Day to day that meant evaluating applications, briefing programme partners on ESG's schemes, and doing the desktop research behind partner engagement.</p>
+              </div>
+              <div class="block">
+                <h4>The reappointment project</h4>
+                <p>Ran the 2022 partner reappointment end to end: gathered and verified information on more than two hundred partners independently, cleaned and structured it, and compiled the Excel report the decision was actually made from.</p>
+              </div>
+              <div class="block">
+                <h4>What I learned</h4>
+                <p>Reading applications back to back teaches you what founders reach for when the substance is thin — total addressable market with no route to it, traction that turns out to be a waitlist, teams assembled after the idea. It also taught me that the decks I found convincing were the ones that named their own weakest assumption first.</p>
+              </div>
+              <div class="block">
+                <h4>Why it matters to me now</h4>
+                <p>It is the reason nearbites has a commercialisation question attached to it rather than sitting finished as a school project. I'd already spent six months watching what separates the two.</p>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
 
-    <!-- ========================= SOURCING ========================= -->
+    <!-- ========== SOURCING ========== -->
     <div class="row">
       <div class="when">2021 — 2023</div>
       <div class="what">
@@ -264,47 +470,127 @@ a:focus-visible,.standing:focus-visible,.shot:focus-visible{outline:2px solid va
         <p class="role">Sole operator</p>
         <p class="result closed">Closed · self-funded throughout</p>
         <p>Built supplier relationships with dealers in Japan and Thailand and brought scarce streetwear into the Singapore market. Every unit was inventory I had already paid for, so the margin only existed if I had read demand correctly.</p>
-        <ul>
-          <li>Tracked release calendars and secondary-market pricing to find the spread before it closed.</li>
-          <li>Managed sourcing, authentication, pricing and cash flow with no outside capital.</li>
-          <li>Learned to negotiate and hold relationships across three markets and two languages.</li>
-        </ul>
+        <button class="opener">Read the full case</button>
         <div class="tags"><span>Sourcing</span><span>Pricing</span><span>Negotiation</span><span>Inventory</span></div>
+
+        <div class="detail"
+             data-kicker="Self-directed · 2021"
+             data-sub="A sourcing operation run on my own capital, from secondary school through polytechnic.">
+          <section data-tab="Overview">
+            <div class="grid2">
+              <div class="block">
+                <h4>How it worked</h4>
+                <p>Tracked release calendars and secondary-market pricing to find spreads before they closed, built relationships with dealers in Japan and Thailand for access to pieces that didn't reach Singapore, and sold into the local market.</p>
+              </div>
+              <div class="block">
+                <h4>What it actually taught me</h4>
+                <ul>
+                  <li>Holding inventory you paid for is a completely different discipline from recommending what someone else should buy.</li>
+                  <li>Relationships with suppliers compound. Price does not.</li>
+                  <li>Most of the money is made in sourcing, not in selling.</li>
+                </ul>
+              </div>
+              <div class="block">
+                <h4>Where I got it wrong</h4>
+                <p>Early on I priced off what I thought a piece was worth rather than what the market had recently paid, and sat on stock for months as a result. It's the single most useful mistake I've made — it's the reason I now go looking for the number before forming the opinion.</p>
+              </div>
+              <div class="block">
+                <h4>Why it's here</h4>
+                <p>Nobody assigned it, graded it or funded it. It is the cleanest evidence I have that I'd have started something anyway.</p>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
 
-    <!-- ========================= WELDY WOMBATS ========================= -->
+    <!-- ========== WELDY WOMBATS ========== -->
     <div class="row">
       <div class="when">2021 — 2022</div>
       <div class="what">
         <h3>Weldy Wombats</h3>
         <p class="role">Founder · Ngee Ann Polytechnic</p>
         <p class="result closed">Closed · handed over on graduation</p>
-        <p>Started a student volunteering organisation from nothing — name, identity and all — and ran programmes with Enabling Village and Extraordinary People, recruiting and coordinating student volunteers for art and engagement sessions.</p>
+        <p>Started a student volunteering organisation from nothing — name, identity and all — and ran programmes with Enabling Village and Extraordinary People.</p>
+        <button class="opener">Read the full case</button>
         <div class="media">
           <button class="shot wide" data-full="assets/wombats-logo.png"><img src="assets/wombats-logo.png" alt="Weldy Wombats logo" loading="lazy"></button>
-          <button class="shot wide" data-full="assets/wombats-workshop.jpg"><img src="assets/wombats-workshop.jpg" alt="Art session run with partner organisation beneficiaries" loading="lazy"></button>
-          <button class="shot wide" data-full="assets/wombats-team.jpg"><img src="assets/wombats-team.jpg" alt="Volunteers and participants at a session" loading="lazy"></button>
+          <button class="shot wide" data-full="assets/wombats-workshop.jpg"><img src="assets/wombats-workshop.jpg" alt="Art session in progress" loading="lazy"></button>
         </div>
         <div class="tags"><span>Founded</span><span>Partnerships</span><span>Volunteer ops</span></div>
+
+        <div class="detail"
+             data-kicker="Non-profit · Founded · 2021"
+             data-sub="A student volunteering organisation built from scratch and handed on intact.">
+          <section data-tab="Overview">
+            <div class="grid2">
+              <div class="block">
+                <h4>Why</h4>
+                <p>Volunteering at my polytechnic was mostly one-off drives with no continuity — good intentions, no relationship with the organisations on the other end. I wanted something that would still be running after the people who started it left.</p>
+              </div>
+              <div class="block">
+                <h4>What we ran</h4>
+                <p>Built the organisation and its identity from zero, then established partnerships with Enabling Village and Extraordinary People, recruiting and coordinating student volunteers for art and engagement sessions with their communities.</p>
+              </div>
+              <div class="block">
+                <h4>What I learned</h4>
+                <p>Getting volunteers to sign up is easy. Getting them to come back is the whole job, and it depends almost entirely on whether the first session felt useful rather than performative. We restructured sessions around that.</p>
+              </div>
+              <div class="block">
+                <h4>How it ended</h4>
+                <p>Handed over to the next cohort on graduation. Building something that outlasts you turns out to be a different skill from building it in the first place.</p>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
 
-    <!-- ========================= NEW BALANCE ========================= -->
+    <!-- ========== NEW BALANCE ========== -->
     <div class="row">
       <div class="when">2021 — 2022</div>
       <div class="what">
         <h3>New Balance promotional campaign</h3>
         <p class="role">Team lead · top 4 of cohort</p>
         <p class="result closed">Closed · industry partner campaign</p>
-        <p>Led a team to diagnose a real brand problem for New Balance and pitch a rebrand around it. We built the campaign on a single idea — "the balance" — and carried it through customisable velcro panels, packaging and a shipping-container pop-up, so the concept showed up as product rather than as a slogan on a slide.</p>
+        <p>Led a team to diagnose a real brand problem for New Balance and pitch a rebrand around it, carried through customisable product, packaging and a pop-up concept.</p>
+        <button class="opener">Read the full case</button>
         <div class="media">
           <button class="shot wide" data-full="assets/nb-cover.png"><img src="assets/nb-cover.png" alt="Campaign cover slide" loading="lazy"></button>
           <button class="shot wide" data-full="assets/nb-logo.png"><img src="assets/nb-logo.png" alt="Campaign lockup" loading="lazy"></button>
           <button class="shot wide" data-full="assets/nb-velcro.png"><img src="assets/nb-velcro.png" alt="Interchangeable velcro panel designs" loading="lazy"></button>
-          <button class="shot wide" data-full="assets/nb-booth.png"><img src="assets/nb-booth.png" alt="Shoebox-inspired shipping container pop-up concept" loading="lazy"></button>
+          <button class="shot wide" data-full="assets/nb-booth.png"><img src="assets/nb-booth.png" alt="Shoebox-inspired shipping container pop-up" loading="lazy"></button>
         </div>
         <div class="tags"><span>Strategy</span><span>Pitching</span><span>Brand</span><span>Concept design</span></div>
+
+        <div class="detail"
+             data-kicker="Brand strategy · Industry partner · 2021"
+             data-sub="A rebrand built on one idea, carried through product, packaging and retail.">
+          <section data-tab="Overview">
+            <div class="grid2">
+              <div class="block">
+                <h4>The brief</h4>
+                <p>An industry partner campaign: identify a real problem facing New Balance and answer it. We took the brand's own name as the problem worth interrogating.</p>
+              </div>
+              <div class="block">
+                <h4>The idea</h4>
+                <p>"The balance" — approaching sustainability and gender equality as the same question of who a heritage sportswear brand is actually for, rather than as two separate campaigns bolted on.</p>
+              </div>
+              <div class="block">
+                <h4>The execution</h4>
+                <ul>
+                  <li>Interchangeable velcro side panels, so one pair of shoes changes with the wearer instead of being replaced.</li>
+                  <li>Packaging and a lockup built off the same mark.</li>
+                  <li>A shipping-container pop-up styled as an oversized shoebox.</li>
+                </ul>
+              </div>
+              <div class="block">
+                <h4>Result</h4>
+                <p>Top four in the cohort. What I'd argue got us there was refusing to let the idea stay a slogan — every deliverable had to be a thing you could hold, not a line on a slide.</p>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
 
@@ -317,29 +603,17 @@ a:focus-visible,.standing:focus-visible,.shot:focus-visible{outline:2px solid va
       <div class="col">
         <h3>Ship products</h3>
         <p>I went from no React Native to a tested, live app in twelve weeks. Picking up an unfamiliar stack under a deadline is the skill I trust most.</p>
-        <ul>
-          <li>React Native, JavaScript, Java</li>
-          <li>Appwrite: auth, storage, real-time sync</li>
-          <li>Unit, integration and acceptance testing</li>
-        </ul>
+        <ul><li>React Native, Expo, JavaScript, Java</li><li>Appwrite: auth, storage, real-time sync</li><li>Unit, integration and acceptance testing</li></ul>
       </div>
       <div class="col">
         <h3>Work with data</h3>
-        <p>Business Analytics with a Quantitative Finance minor. Comfortable going from a messy source to the one number a decision actually turns on.</p>
-        <ul>
-          <li>Python, R (dplyr, tidyverse), SQL</li>
-          <li>Tableau, Power BI, advanced Excel</li>
-          <li>Hypothesis testing, econometrics, forecasting</li>
-        </ul>
+        <p>Business Analytics with a Quantitative Finance minor. Comfortable going from a messy source to the one number a decision turns on.</p>
+        <ul><li>Python, R (dplyr, tidyverse), SQL</li><li>Tableau, Power BI, advanced Excel</li><li>Hypothesis testing, econometrics, forecasting</li></ul>
       </div>
       <div class="col">
         <h3>Start things</h3>
-        <p>Two ventures, one non-profit and one product, none of them handed to me. I'm comfortable being the person who moves first without a brief.</p>
-        <ul>
-          <li>English fluent, Mandarin conversational, Japanese learning</li>
-          <li>Sourcing, negotiation, partnerships</li>
-          <li>Pitching to industry and government</li>
-        </ul>
+        <p>Two ventures, one non-profit and one product, none of them handed to me. I'm comfortable moving first without a brief.</p>
+        <ul><li>English fluent, Mandarin conversational, Japanese learning</li><li>Sourcing, negotiation, partnerships</li><li>Pitching to industry and government</li></ul>
       </div>
     </div>
   </section>
@@ -356,12 +630,25 @@ a:focus-visible,.standing:focus-visible,.shot:focus-visible{outline:2px solid va
     <div class="contact">
       <a href="mailto:limzenin@gmail.com">limzenin@gmail.com</a>
       <a href="https://www.linkedin.com/in/limzening" rel="me">LinkedIn</a>
-      <a href="https://github.com/">GitHub</a>
+      <a href="https://github.com/zoooble">GitHub</a>
       <a href="Lim_Ze_Ning_Resume.pdf">Resume (PDF)</a>
     </div>
     <small>Singapore · open to internships and early-stage roles</small>
   </footer>
 
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="sheet">
+    <div class="sheet-top"><button class="x" id="mClose">Close &times;</button></div>
+    <div class="sheet-head">
+      <p class="kicker" id="mKicker"></p>
+      <h2 id="mTitle"></h2>
+      <p class="sub" id="mSub"></p>
+    </div>
+    <div class="tabbar" id="mTabs" role="tablist"></div>
+    <div class="panes" id="mPanes"></div>
+  </div>
 </div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged image">
@@ -370,27 +657,59 @@ a:focus-visible,.standing:focus-visible,.shot:focus-visible{outline:2px solid va
 </div>
 
 <script>
+/* You should never need to edit below this line. */
 (function () {
-  var lb = document.getElementById('lb'),
-      lbImg = document.getElementById('lbImg'),
-      last = null;
-  function open(src, alt){
-    lbImg.src = src; lbImg.alt = alt || '';
-    lb.classList.add('open');
-    document.getElementById('lbClose').focus();
+  var modal=document.getElementById('modal'), mTabs=document.getElementById('mTabs'),
+      mPanes=document.getElementById('mPanes'), lastOpener=null;
+
+  function openProject(row){
+    var detail=row.querySelector('.detail'); if(!detail) return;
+    document.getElementById('mKicker').textContent=detail.dataset.kicker||'';
+    document.getElementById('mTitle').textContent=row.querySelector('h3').textContent;
+    document.getElementById('mSub').textContent=detail.dataset.sub||'';
+    mTabs.innerHTML=''; mPanes.innerHTML='';
+
+    detail.querySelectorAll('[data-tab]').forEach(function(sec,i){
+      var b=document.createElement('button');
+      b.textContent=sec.dataset.tab; b.setAttribute('role','tab');
+      b.setAttribute('aria-selected', i===0?'true':'false');
+      var pane=document.createElement('div');
+      pane.className='pane'+(i===0?' on':''); pane.innerHTML=sec.innerHTML;
+      b.addEventListener('click',function(){
+        mTabs.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected','false')});
+        mPanes.querySelectorAll('.pane').forEach(function(x){x.classList.remove('on')});
+        b.setAttribute('aria-selected','true'); pane.classList.add('on');
+        mPanes.scrollIntoView({block:'nearest'});
+      });
+      mTabs.appendChild(b); mPanes.appendChild(pane);
+    });
+
+    modal.classList.add('open'); document.body.classList.add('locked');
+    modal.querySelector('.sheet').scrollTop=0;
+    document.getElementById('mClose').focus();
   }
-  function close(){
-    lb.classList.remove('open'); lbImg.src = '';
-    if (last) last.focus();
+  function closeProject(){
+    modal.classList.remove('open'); document.body.classList.remove('locked');
+    if(lastOpener) lastOpener.focus();
   }
-  document.addEventListener('click', function (e) {
-    var shot = e.target.closest('.shot');
-    if (shot) { last = shot; var img = shot.querySelector('img');
-      open(shot.dataset.full || img.src, img.alt); return; }
-    if (e.target.closest('.lb')) close();
+
+  var lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lastShot=null;
+  function openShot(src,alt){ lbImg.src=src; lbImg.alt=alt||''; lb.classList.add('open'); document.getElementById('lbClose').focus(); }
+  function closeShot(){ lb.classList.remove('open'); lbImg.src=''; if(lastShot) lastShot.focus(); }
+
+  document.addEventListener('click',function(e){
+    var op=e.target.closest('.opener');
+    if(op){ lastOpener=op; openProject(op.closest('.row')); return; }
+    if(e.target.closest('#mClose')||e.target===modal){ closeProject(); return; }
+    var shot=e.target.closest('.shot');
+    if(shot){ lastShot=shot; var img=shot.querySelector('img');
+      openShot(shot.dataset.full||img.src,img.alt); return; }
+    if(e.target.closest('.lb')){ closeShot(); }
   });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && lb.classList.contains('open')) close();
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape') return;
+    if(lb.classList.contains('open')) closeShot();
+    else if(modal.classList.contains('open')) closeProject();
   });
 })();
 </script>
