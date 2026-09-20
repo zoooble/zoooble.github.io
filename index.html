@@ -332,59 +332,75 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div class="when">2026</div>
       <div class="what">
         <h3>ML Research Agent</h3>
-        <p class="role">TechJam 2026 · five-person team</p>
-        <p class="result closed">Closed · hackathon prototype</p>
-        <p>An LLM-guided loop that proposes changes to a recommendation model, runs the experiment, reads the result, and decides whether to keep the change — then feeds that history back into the next proposal. Built against the KuaiRand recommendation benchmark.</p>
+        <p class="role">TikTok CodeJam 2026, Track 2 (Autonomous ML) &middot; five-person team</p>
+        <p class="result closed">Closed &middot; 0.6016 &rarr; 0.6035 validation primary</p>
+        <p>An agent that improves a recommender pipeline on its own: it proposes a change, writes the code, trains, evaluates on validation, keeps or reverts, and repeats until it converges. I owned the model interface, which is the only part of the system that talks to the LLM.</p>
         <button class="opener">Read the full case</button>
-        <div class="tags"><span>Python</span><span>NumPy</span><span>Gemini API</span><span>Subprocess</span></div>
+        <div class="tags"><span>Python</span><span>NumPy</span><span>Gemini API</span></div>
 
         <div class="detail"
-             data-kicker="ML engineering · TechJam 2026"
-             data-sub="Automating the propose-train-evaluate-revise cycle that ML experimentation normally runs on by hand.">
+             data-kicker="ML engineering &middot; TikTok CodeJam 2026"
+             data-sub="An agent that proposes, runs, and keeps or reverts its own changes to a recommender pipeline.">
           <section data-tab="Overview">
             <div class="grid2">
               <div class="block">
-                <h4>The problem</h4>
-                <p>Machine learning experimentation is a repeated cycle: you propose a change, train, evaluate, then decide whether to keep it and propose the next thing. Most of that loop is mechanical, and the interesting part — deciding what to try next given everything you've already tried — is the part that gets rushed because the rest takes so long. We wanted to see how much of that cycle could be handed to an LLM on a real benchmark.</p>
+                <h4>The task</h4>
+                <p>Track 2 asked for an agent that autonomously improves a recommender pipeline on the KuaiRand-Pure benchmark. The loop is propose a change, generate the code, train, evaluate on validation, keep or revert, and repeat until convergence. Most of that cycle is mechanical; the part worth automating well is deciding what to try next given everything already tried.</p>
+              </div>
+              <div class="block">
+                <h4>Result</h4>
+                <p>The official baseline was 0.6016 on the validation primary metric, the mean of GAUC and nDCG@5. Our agent reached 0.6035, an improvement of 0.0019, and converged under the organisers' rule of &epsilon;=0.002 over N=3.</p>
+                <p>Seed-to-seed noise on this setup is around 0.0008 and the run was single-seed, so I'd read that as indicative rather than confirmed. Everything ran on CPU with numpy, so zero GPU-hours, on Gemini's free API tier, which meant the whole thing cost nothing to run.</p>
               </div>
               <div class="block">
                 <h4>How the loop works</h4>
                 <ul>
-                  <li>The model receives the current pipeline and the history of previous experiments, and returns a hypothesis along with a complete candidate pipeline.</li>
-                  <li>The candidate's Python is syntax-checked before anything runs.</li>
-                  <li>It executes in its own working directory as a subprocess, with output captured and a timeout bounding it.</li>
-                  <li>The loop reads the output metrics and validates them against the structure the benchmark expects.</li>
-                  <li>It then keeps or rejects the candidate and writes the score, the code difference, the decision and any failure into the history for the next round.</li>
+                  <li>The model receives the current pipeline and the history of previous experiments, and returns a stated hypothesis with a complete candidate pipeline.</li>
+                  <li>The candidate's Python is syntax-checked before anything executes.</li>
+                  <li>It runs as a subprocess in its own working directory, with output captured and a timeout bounding it.</li>
+                  <li>The loop reads the resulting metrics and validates them against the structure the benchmark expects.</li>
+                  <li>It keeps or reverts the candidate, then writes the score, the code difference, the decision and any failure into the history for the next round.</li>
                 </ul>
               </div>
               <div class="block">
-                <h4>My contribution</h4>
-                <p>[FILL THIS IN — which part of the loop was yours? Be specific about what you wrote, and don't describe anything a teammate built. If you're not sure, check the team's contribution record.]</p>
-              </div>
-              <div class="block">
-                <h4>What I took from it</h4>
-                <p>An experiment that crashes or times out still produces information, as long as the failure is captured in a structure the loop can read. Getting that right mattered more than getting more candidates to succeed, because a run that fails silently costs you the whole iteration.</p>
+                <h4>What I owned</h4>
+                <p>The model interface: <code>llm.py</code> and <code>prompts.py</code>, covering prompt construction, extracting a complete Python file out of a chatty model reply, parsing the stated hypothesis, and formatting experiment history so the agent stops re-proposing ideas that have already failed.</p>
+                <p>The client is provider-agnostic. Everything speaks the OpenAI protocol, so moving between Gemini, Groq, a local Ollama model or BytePlus ModelArk is a config change rather than a code change. Failure handling is exponential-backoff retries plus a request timeout, under a contract that the function never raises — it returns <code>ok: False</code> with an error string, so one bad response can't kill an overnight run. I also wrote the token metering for the resource report.</p>
               </div>
             </div>
           </section>
 
-          <section data-tab="Honest caveats">
+          <section data-tab="What I found">
             <div class="grid2">
               <div class="block">
-                <h4>We didn't place</h4>
-                <p>It was a hackathon and we didn't win anything. I'm including it because the problem was more interesting than the result, and because it's the first thing I've built where an LLM was doing something other than answering questions.</p>
+                <h4>The agent's proposals weren't reaching the model</h4>
+                <p>Three iterations produced three genuinely different feature hypotheses and three identical scores. That shouldn't be possible — some ideas should help and some should hurt, and identical results across different ideas means the ideas aren't being tested at all.</p>
+                <p>The feature encoder lived in a file the agent couldn't edit, so every feature it built was silently discarded before training ever started. It had actually worked out that it needed to register new fields, and tried to do it by mutating a module-level list, which does nothing.</p>
               </div>
+              <div class="block">
+                <h4>Why that one mattered</h4>
+                <p>The fix was structural rather than a patch. Whatever you want an agent to change has to live inside its editable surface: its action space has to match its reasoning space. It was reasoning correctly about a system it had no way to alter, and nothing in the output looked like an error.</p>
+              </div>
+              <div class="block">
+                <h4>A prompt rule changed its method</h4>
+                <p>The agent was computing target-encoding features in-fold, which trains a model to over-trust a feature that partly contains its own answer. I added one paragraph to the prompt requiring out-of-fold computation. On the next run it explicitly reasoned about leakage and changed its approach without being told to again.</p>
+              </div>
+              <div class="block">
+                <h4>Two silent failures</h4>
+                <p>The output token limit was set too low to emit a full file, so responses truncated mid-code and read like the model refusing the task rather than running out of room. Separately, file writes were defaulting to cp1252 on Windows, which corrupted every generated file — and was invisible to the teammates working on macOS.</p>
+              </div>
+            </div>
+          </section>
+
+          <section data-tab="Scope and limits">
+            <div class="grid2">
               <div class="block">
                 <h4>It isn't a sandbox</h4>
-                <p>A separate working directory and a timeout give you execution controls, not isolation. Running model-generated code safely is a harder problem than we solved in a weekend, and I'd want to say that plainly rather than imply otherwise.</p>
+                <p>A separate working directory and a timeout are execution controls, not isolation. Running model-generated code safely is a harder problem than this solves, and the distinction is worth stating plainly rather than leaving a reader to assume otherwise.</p>
               </div>
               <div class="block">
-                <h4>The numbers aren't final</h4>
-                <p>Final performance figures are still being reconciled across the saved run artifacts, so I'm not quoting an improvement number I can't stand behind.</p>
-              </div>
-              <div class="block">
-                <h4>What I'd do next</h4>
-                <p>[OPTIONAL — one honest line about what you'd change if you picked it up again.]</p>
+                <h4>Single seed</h4>
+                <p>+0.0019 against a seed-to-seed noise floor of roughly 0.0008 is a real margin, but one run at one seed isn't a confirmation. Repeating across seeds is the first thing I'd do with more time.</p>
               </div>
             </div>
           </section>
@@ -392,7 +408,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
           <section data-tab="Links">
             <div class="block">
               <h4>Read more</h4>
-              <p><a href="https://devpost.com/" target="_blank" rel="noopener">Devpost submission</a> — [replace with your actual link]</p>
+              <p><a href="https://devpost.com/" target="_blank" rel="noopener">Devpost submission</a> &mdash; [replace with your actual link]</p>
             </div>
           </section>
         </div>
@@ -604,6 +620,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
           <button class="shot wide" data-full="assets/wombats-logo.png"><img src="assets/wombats-logo.png" alt="Weldy Wombats logo" loading="lazy"></button>
           <button class="shot wide" data-full="assets/wombats-team.jpg"><img src="assets/wombats-team.jpg" alt="The Weldy Wombats team" loading="lazy"></button>
           <button class="shot wide" data-full="assets/wombats-workshop.jpg"><img src="assets/wombats-workshop.jpg" alt="An art session in progress" loading="lazy"></button>
+          <button class="shot" data-full="assets/wombats-tags.jpg"><img src="assets/wombats-tags.jpg" alt="Weldy Wombats name tags" loading="lazy"></button>
+          <button class="shot" data-full="assets/wombats-session.jpg"><img src="assets/wombats-session.jpg" alt="Running a session with participants" loading="lazy"></button>
         </div>
         <div class="tags"><span>Founded</span><span>User research</span><span>Root cause analysis</span><span>Pitching</span></div>
 
@@ -715,6 +733,63 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
             <p class="note">The campaign was structured across owned, earned, paid and converged media, with each element given its own objective rather than being treated as general awareness.</p>
           </section>
         </div>
+      </div>
+    </div>
+
+    <!-- ========== ORIENTATION CAMP ========== -->
+    <div class="row">
+      <div class="when">2020 — 2021</div>
+      <div class="what">
+        <h3>Business School orientation camp</h3>
+        <p class="role">Student coordinator · Ngee Ann Polytechnic</p>
+        <p class="result closed">Closed · ran for the incoming cohort</p>
+        <p>I coordinated the School of Business orientation camp, which meant weekly committee meetings across a full year. We had almost no mentor oversight, so the committee carried both the autonomy and the responsibility for everything that happened.</p>
+        <button class="opener">Read the full case</button>
+        <div class="media">
+          <button class="shot wide" data-full="assets/orientation-tee.png"><img src="assets/orientation-tee.png" alt="Camp shirt design in progress in Photoshop" loading="lazy"></button>
+          <button class="shot wide" data-full="assets/orientation-team.jpg"><img src="assets/orientation-team.jpg" alt="The camp committee" loading="lazy"></button>
+        </div>
+        <div class="tags"><span>Event operations</span><span>Fundraising</span><span>Merchandise</span><span>Photoshop</span></div>
+
+        <div class="detail" data-kicker="Student leadership · Ngee Ann Polytechnic · 2020"
+             data-sub="A year of weekly meetings, a self-funded budget, and no mentor to escalate to.">
+          <section data-tab="Overview">
+            <div class="grid2">
+              <div class="block">
+                <h4>What made it different</h4>
+                <p>I'd led things before, but always with someone more senior to check the work. Here there was effectively no supervising mentor, which meant the committee had full autonomy over the camp and full responsibility for it at the same time. If something wasn't decided, it was because we hadn't decided it.</p>
+              </div>
+              <div class="block">
+                <h4>Funding it ourselves</h4>
+                <p>A year before the camp itself we designed, indented and marketed an original run of shirts to raise the money the camp needed. I did the artwork in Photoshop and we handled the order and the selling ourselves. The proceeds paid for the camp identities and financed the games.</p>
+              </div>
+              <div class="block">
+                <h4>Building the programme</h4>
+                <p>We devised our own games and activities rather than reusing the previous year's, and trialled them with the committee first so we knew which ones actually worked with a group before we ran them on the cohort.</p>
+              </div>
+              <div class="block">
+                <h4>What I took from it</h4>
+                <p>Sustaining a committee across a year of weekly meetings is a different problem from running an event on the day. Most of the work is keeping people invested in something that is still eleven months away, and the shirt project helped with that as much as it helped the budget, because it gave everyone something finished to point at early on.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SCOUTS ========== -->
+    <div class="row">
+      <div class="when">2018</div>
+      <div class="what">
+        <h3>Overseas exchange, Chiang Mai</h3>
+        <p class="role">Patrol Leader · Dragon Scouts, Gan Eng Seng School</p>
+        <p class="result closed">Closed · earliest thing here</p>
+        <p>I led my unit on an exchange to Chiang Mai as the main student leader, second only to the accompanying teachers. That covered transport, attendance, safety and the activity programme. It's the earliest version of the same thing I keep doing, which is why it's still on here.</p>
+        <div class="media">
+          <button class="shot wide" data-full="assets/scouts-chiangmai.jpg"><img src="assets/scouts-chiangmai.jpg" alt="With the host scout unit in Chiang Mai" loading="lazy"></button>
+          <button class="shot" data-full="assets/scouts-patrol.jpg"><img src="assets/scouts-patrol.jpg" alt="My patrol in Singapore" loading="lazy"></button>
+        </div>
+        <div class="tags"><span>Logistics</span><span>Safety</span><span>Overseas</span></div>
       </div>
     </div>
 
