@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lim Ze Ning</title>
-<meta name="description" content="Lim Ze Ning — Business Analytics at NUS. Builder, analyst, and occasional trader.">
+<meta name="description" content="Lim Ze Ning — Business Analytics at NUS. Turning observed problems into products.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Spectral:wght@200;300;400&display=swap" rel="stylesheet">
@@ -121,6 +121,8 @@ a{color:inherit}
 .when{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-faint);padding-top:4px;font-variant-numeric:tabular-nums}
 .what h3{font-family:Spectral,Georgia,serif;font-weight:400;font-size:1.5rem;line-height:1.2;margin:0 0 3px}
 .role{font-size:14px;color:var(--ink-faint);margin:0 0 10px}
+.what strong,.block strong,.col strong,.hero-body strong{font-weight:600;color:var(--ink)}
+.now strong{font-family:Archivo,sans-serif;font-size:.88em;font-weight:600}
 .what p{margin:0 0 13px;max-width:var(--measure);color:var(--ink-soft);font-size:.985rem}
 .result{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--live);margin:0 0 11px}
 .result.closed{color:var(--ink-faint)}
@@ -226,7 +228,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 
   <header class="mast">
     <div class="who">Lim Ze Ning · Singapore</div>
-    <nav><a href="#record">Track record</a><a href="#work">What I do</a><a href="#contact">Contact</a></nav>
+    <nav><a href="#record">Track record</a><a href="#why-noc">Why NOC</a><a href="#work">What I do</a><a href="#contact">Contact</a></nav>
   </header>
 
   <section class="hero">
@@ -235,15 +237,25 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
     <div class="namerule"></div>
     <div class="hero-body">
       <div>
-        <p>I'm in my second year at NUS, reading Business Analytics with a minor in Quantitative Finance. Before that I spent three years at Ngee Ann Polytechnic and six months at Enterprise Singapore, where I assessed applications from foreign founders who wanted to start companies in Singapore and saw a few hundred of them make their case.</p>
-        <p>Most of what I've done since comes back to the same habit. I started sourcing streetwear out of Japan while I was still in secondary school because I noticed the same pieces selling for very different prices in two markets I happened to be in. More recently I've been building nearbites, an app that helps students find the catered food NUS events would otherwise throw away, and I'm trying to take it further than a school project.</p>
+        <p>I'm a second-year <strong>Business Analytics student at NUS</strong>, with a minor in Quantitative Finance. I like spotting opportunities in everyday life and doing something about them.</p>
+        <p>That started with sourcing streetwear from <strong>Japan for buyers in Singapore</strong>. At Enterprise Singapore, assessing founders' business plans pushed me to think beyond a good opportunity to what makes a business viable. Now, I'm applying both instincts to <strong>nearbites</strong>: helping students find surplus food on campus before it goes to waste.</p>
       </div>
       <img class="portrait" src="assets/portrait.jpg" alt="Lim Ze Ning" loading="lazy">
     </div>
-    <a class="standing" href="#nearbites"><span class="dot"></span> Currently building nearbites toward commercialisation</a>
+    <a class="standing" href="#nearbites"><span class="dot"></span> Building nearbites · exploring its commercial potential</a>
+  </section>
+
+  <section class="sec" id="why-noc">
+    <div class="now">
+      <h2>Why NOC</h2>
+      <p>My early ventures taught me to spot opportunities and act, but their business models were straightforward. At Enterprise Singapore, assessing EntrePass applications and analysing more than 200 partners showed me entrepreneurship from the other side. I learned to distinguish <strong>a compelling pitch from a viable business</strong>—and realised how much I still had to learn about building one.</p>
+      <p>nearbites is my first step towards <strong>turning an idea into a product people can use</strong>. Through NOC, I want to work alongside founders in an overseas startup, learn how they test demand and make product decisions, and bring those lessons back to my own ventures. I want to develop the judgement to take an idea from imagination to <strong>a business that earns its place in people's lives</strong>.</p>
+    </div>
   </section>
 
   <section class="sec" id="record">
+    <h2>Selected projects &amp; experience</h2>
+    <p class="lede">What I started, what I contributed, and what I learned.</p>
 
 <!-- =================================================================
      EDITING A PROJECT
@@ -261,9 +273,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div class="what">
         <h3>nearbites</h3>
         <p class="role">Co-founder · NUS Orbital 2026, Apollo</p>
-        <p class="result">Open · shipped and user-tested, working toward commercialisation</p>
-        <p>A React Native app for the leftover catered food at NUS events. Organisers post what's left with a GPS location, a portion count, dietary tags and a best-before time, and students find it either on a feed they can sort by distance or expiry, or on a live campus map.</p>
-        <button class="opener">Read the full case</button>
+        <p class="result">In development · Apollo · tested with five students</p>
+        <p>A problem I felt personally: <strong>surplus food on campus, but no reliable way to find it</strong>. I used the summer to learn React Native and co-build nearbites, turning that frustration into a working app.</p>
+        <button class="opener">Explore the project</button>
         <div class="media">
           <button class="shot" data-full="assets/nearbites-home.png"><img src="assets/nearbites-home.png" alt="Home feed with campus map and listings sorted by distance" loading="lazy"></button>
           <button class="shot" data-full="assets/nearbites-listing.png"><img src="assets/nearbites-listing.png" alt="Listing detail with dietary tags, collection cutoff and community updates" loading="lazy"></button>
@@ -274,132 +286,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 
         <div class="detail"
              data-kicker="Mobile · Full stack · 2026"
-             data-sub="Leftover catered food at NUS, gathered into one place instead of scattered across Telegram.">
-          <section data-tab="Overview">
-            <div class="grid2">
-              <div class="block">
-                <h4>The problem</h4>
-                <p>NUS student groups cater a lot of events, and a good deal of that food goes uneaten. At the moment the way people hear about it is the NUS Buffet Response Telegram group, which carries so much traffic that most of its members have muted or archived it, so the messages that would have mattered to them get buried with everything else.</p>
-                <p>The posts themselves also tend to leave out the things you actually need. They often don't say whether the organiser approved the giveaway, which floor of the building the food is on, or whether it's halal. So the food ends up in a bin while the people who would happily have eaten it never saw the message.</p>
-              </div>
-              <div class="block">
-                <h4>What I built</h4>
-                <p>We were a two-person Orbital team. My side covered authentication and the multi-step onboarding that collects dietary tags, food categories and a distance range, the three-step posting flow, the home feed, the interactive campus map, and the Appwrite data layer that sits behind all of it.</p>
-              </div>
-              <div class="block">
-                <h4>Where it stands</h4>
-                <p>We attained Apollo, which is Orbital's second-highest level. Authentication, onboarding, posting, the feed and the map are all finished and tested on device. Push notifications are not, although the backend for them is written — the Bugs tab explains what stopped us, because the reason is more interesting than the feature.</p>
-              </div>
-              <div class="block">
-                <h4>What I'd tell you if you asked</h4>
-                <p>Almost none of the difficulty was in the features themselves. It was in date strings that parse correctly on one device and throw an error on another, photo uploads that misreport their own size, and GPS addresses that are technically accurate and still useless for finding food inside a building.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="How it's built">
-            <div class="cards">
-              <div class="card">
-                <p class="kicker">Auth</p>
-                <h5>One source of truth</h5>
-                <p>No screen talks to Appwrite directly. Authentication calls go through a service layer that updates a global <code>UserContext</code>, so every component reads the same user state instead of re-fetching it, and swapping the auth provider later would only touch one layer. Expo Router route groups keep unauthenticated users out of the app routes.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Onboarding</p>
-                <h5>Ask later, not at signup</h5>
-                <p>Preferences are collected across several screens after registration rather than in one long form, because asking for everything at once is how you lose people at the door. Answers sit in React Context until the final step, so going back doesn't wipe them, and each step validates on its own.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Posting</p>
-                <h5>Three steps, then upload</h5>
-                <p>Details first, then logistics — portions, a best-before time, GPS coordinates reverse-geocoded into an address, and an optional pickup note — and finally one to four photos. The images go to Appwrite Storage before anything else, and the returned file IDs are stored on the listing document along with an ISO-8601 timestamp.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Feed and map</p>
-                <h5>Sorting, and getting rid of stale posts</h5>
-                <p>Distance is calculated with a Haversine approximation. Map pins are colour-coded green, orange or red off the best-before time, and anything more than an hour past expiry drops out of both the feed and the map so nobody walks across campus for food that's gone.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Testing</p>
-                <h5>Jest, running on its own</h5>
-                <p>Unit tests cover the distance calculation, the pin colour logic, the visibility filter, distance formatting and post validation across both location modes. They run automatically on every push and pull request through GitHub Actions.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Process</p>
-                <h5>Branches and pull requests</h5>
-                <p>Component-based architecture, feature branches, and changes going through pull requests rather than straight onto main.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="Bugs">
-            <div class="grid2">
-              <div class="block">
-                <h4>"12.00pm" crashed the app</h4>
-                <p>JavaScript's <code>Date</code> constructor wouldn't parse a time string with a dot separator, and it threw a RangeError in some environments while working fine in others, which made it slow to pin down. I ended up extracting the hour and minute manually and constructing the Date directly rather than trusting the parser.</p>
-              </div>
-              <div class="block">
-                <h4>Photos that were too small to upload</h4>
-                <p>I was passing <code>photo.base64.length</code> as the file size, which is the character count of the encoded string rather than the byte count of the file. Appwrite Storage kept returning EntityTooSmall until I worked out the actual byte size.</p>
-              </div>
-              <div class="block">
-                <h4>Push tokens with nowhere to go</h4>
-                <p>Tokens were supposed to save to a user's preferences document on login, but for a new user that document doesn't exist yet at that point, so the write quietly did nothing and gave no error.</p>
-              </div>
-              <div class="block">
-                <h4>The wall we didn't get past</h4>
-                <p>A real <code>ExponentPushToken</code> can only be generated from a native build. Expo Go, which is what we developed in, hands back its own shared token instead, so the save step was silently skipped through every testing session we ran. Testing properly on iOS needs a US$99 Apple Developer account, which we couldn't justify, so I built an Android APK through EAS instead — and token registration still failed on the device.</p>
-                <p>The Appwrite Function, the database trigger, the preference-matching logic and the Expo push API call are all written and verified in isolation. There was never a valid recipient to send anything to.</p>
-              </div>
-              <div class="block">
-                <h4>The feed that wouldn't refresh</h4>
-                <p>Posting worked, but the new listing didn't show up, because the home screen was already mounted and nothing triggered a re-fetch.</p>
-              </div>
-              <div class="block">
-                <h4>Correct addresses, useless directions</h4>
-                <p>Reverse geocoding gives you a building name, which tells you nothing about which floor or room the food is in. We only found this out by watching people try to use it.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="What users said">
-            <div class="grid2">
-              <div class="block">
-                <h4>How we tested it</h4>
-                <p>Five NUS students from different faculties used the app on their own without any guidance from us. Each of them registered, went through onboarding, posted a food event, and then tried to find listings on the feed and the map, and we asked them about each stage afterwards.</p>
-              </div>
-              <div class="block">
-                <h4>What came back</h4>
-                <ul>
-                  <li>All five completed onboarding and found active listings.</li>
-                  <li>Four of five found the three-step posting flow intuitive; one was confused by GPS versus Building mode until they read the labels.</li>
-                  <li>Three of five wanted the event name more prominent on the listing card.</li>
-                  <li>One tester's map loaded outside the NUS bounds.</li>
-                  <li>Nobody reported a crash, and four of five said they'd use it if it were available.</li>
-                </ul>
-              </div>
-              <div class="block">
-                <h4>What we changed as a result</h4>
-                <ul>
-                  <li>Added a pickup location description, because GPS coordinates on their own couldn't get anyone to the right room.</li>
-                  <li>Added building, floor and unit fields after testers found the reverse-geocoded names too vague to act on.</li>
-                  <li>Made expired posts disappear from the feed automatically, since people kept encountering stale listings.</li>
-                </ul>
-              </div>
-              <div class="block">
-                <h4>What I took from it</h4>
-                <p>Every one of those changes came from watching somebody fail at something we had assumed was obvious. The most common request we didn't get to was search and filtering on the feed, which is near the top of the list if we keep going.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="Links">
-            <div class="block">
-              <h4>Read more</h4>
-              <p><a href="https://drive.google.com/file/d/1iC8shf_17mbhzZlu9ufofcW7aIlPl5CP/view?usp=sharing" target="_blank" rel="noopener">Full technical write-up (PDF)</a></p>
-              <p>Two-person Orbital team · Apollo · pilot, still in development</p>
-            </div>
-          </section>
+             data-sub="A campus frustration turned into a working product.">
+          <section data-tab="Overview"><div class="grid2">
+<div class="block"><h4>Why I started</h4><p>nearbites grew from a <strong>real frustration in my own campus life</strong>. Food-sharing messages were easy to miss and often lacked clear collection details. Summer gave me the time to learn the tools and build a solution.</p></div>
+<div class="block"><h4>My contribution</h4><p>In our two-person team, I built <strong>authentication, onboarding, posting, the feed and campus map</strong>, plus the Appwrite data layer. Students can find food by distance and expiry, with dietary and pickup details.</p></div>
+<div class="block"><h4>What testing changed</h4><p><strong>Five NUS students</strong> tested the app independently. All completed onboarding and found listings; four said they would use it. Their feedback led to clearer pickup instructions and automatic removal of stale posts.</p></div>
+<div class="block"><h4>Where it stands</h4><p>We attained <strong>Orbital Apollo</strong>. The core flows are built and tested; push notifications remain unresolved. My next question is how to turn an initial working product into something people use consistently.</p></div>
+</div></section>
+          <section data-tab="Details &amp; evidence"><div class="grid2">
+<div class="block"><h4>Engineering</h4><p>A shared authentication service and React Context keep user state consistent. <strong>Jest tests run through GitHub Actions</strong>, covering distance, expiry, visibility and post validation.</p></div>
+<div class="block"><h4>Lessons from debugging</h4><p>I fixed inconsistent date parsing and incorrect upload file sizes. Testing also exposed a product issue: <em>a correct GPS address still does not tell someone which room to collect food from.</em></p></div>
+<div class="block"><h4>An unresolved feature</h4><p>Notification backend components were tested in isolation, but device token registration failed. <strong>End-to-end push delivery is not yet working.</strong></p></div>
+<div class="block"><h4>Read more</h4><p><a href="https://drive.google.com/file/d/1iC8shf_17mbhzZlu9ufofcW7aIlPl5CP/view?usp=sharing" target="_blank" rel="noopener">Full technical write-up (PDF)</a></p></div>
+</div></section>
         </div>
       </div>
     </div>
@@ -409,85 +308,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div class="when">2026</div>
       <div class="what">
         <h3>ML Research Agent</h3>
-        <p class="role">TikTok TechJam 2026, Track 2 (Autonomous ML) &middot; five-person team</p>
-        <p class="result closed">Closed &middot; 0.6016 &rarr; 0.6035 validation primary</p>
-        <p>An agent that improves a recommender pipeline on its own: it proposes a change, writes the code, trains, evaluates on validation, keeps or reverts, and repeats until it converges. I owned the model interface, which is the only part of the system that talks to the LLM.</p>
-        <button class="opener">Read the full case</button>
+        <p class="role">TikTok CodeJam 2026, Track 2 (Autonomous ML) &middot; five-person team</p>
+        <p class="result closed">Completed &middot; validation 0.6016 &rarr; 0.6035 · single seed</p>
+        <p>Built an agent that experiments with a recommender pipeline. I owned the <strong>LLM interface, prompts and response handling</strong>, translating model suggestions into executable experiments.</p>
+        <button class="opener">Explore the project</button>
         <div class="tags"><span>Python</span><span>NumPy</span><span>Gemini API</span></div>
 
         <div class="detail"
              data-kicker="ML engineering &middot; TikTok CodeJam 2026"
-             data-sub="An agent that proposes, runs, and keeps or reverts its own changes to a recommender pipeline.">
-          <section data-tab="Overview">
-            <div class="grid2">
-              <div class="block">
-                <h4>The task</h4>
-                <p>Track 2 asked for an agent that autonomously improves a recommender pipeline on the KuaiRand-Pure benchmark. The loop is propose a change, generate the code, train, evaluate on validation, keep or revert, and repeat until convergence. Most of that cycle is mechanical; the part worth automating well is deciding what to try next given everything already tried.</p>
-              </div>
-              <div class="block">
-                <h4>Result</h4>
-                <p>The official baseline was 0.6016 on the validation primary metric, the mean of GAUC and nDCG@5. Our agent reached 0.6035, an improvement of 0.0019, and converged under the organisers' rule of &epsilon;=0.002 over N=3.</p>
-                <p>Seed-to-seed noise on this setup is around 0.0008 and the run was single-seed, so I'd read that as indicative rather than confirmed. Everything ran on CPU with numpy, so zero GPU-hours, on Gemini's free API tier, which meant the whole thing cost nothing to run.</p>
-              </div>
-              <div class="block">
-                <h4>How the loop works</h4>
-                <ul>
-                  <li>The model receives the current pipeline and the history of previous experiments, and returns a stated hypothesis with a complete candidate pipeline.</li>
-                  <li>The candidate's Python is syntax-checked before anything executes.</li>
-                  <li>It runs as a subprocess in its own working directory, with output captured and a timeout bounding it.</li>
-                  <li>The loop reads the resulting metrics and validates them against the structure the benchmark expects.</li>
-                  <li>It keeps or reverts the candidate, then writes the score, the code difference, the decision and any failure into the history for the next round.</li>
-                </ul>
-              </div>
-              <div class="block">
-                <h4>What I owned</h4>
-                <p>The model interface: <code>llm.py</code> and <code>prompts.py</code>, covering prompt construction, extracting a complete Python file out of a chatty model reply, parsing the stated hypothesis, and formatting experiment history so the agent stops re-proposing ideas that have already failed.</p>
-                <p>The client is provider-agnostic. Everything speaks the OpenAI protocol, so moving between Gemini, Groq, a local Ollama model or BytePlus ModelArk is a config change rather than a code change. Failure handling is exponential-backoff retries plus a request timeout, under a contract that the function never raises — it returns <code>ok: False</code> with an error string, so one bad response can't kill an overnight run. I also wrote the token metering for the resource report.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="What I found">
-            <div class="grid2">
-              <div class="block">
-                <h4>The agent's proposals weren't reaching the model</h4>
-                <p>Three iterations produced three genuinely different feature hypotheses and three identical scores. That shouldn't be possible — some ideas should help and some should hurt, and identical results across different ideas means the ideas aren't being tested at all.</p>
-                <p>The feature encoder lived in a file the agent couldn't edit, so every feature it built was silently discarded before training ever started. It had actually worked out that it needed to register new fields, and tried to do it by mutating a module-level list, which does nothing.</p>
-              </div>
-              <div class="block">
-                <h4>Why that one mattered</h4>
-                <p>The fix was structural rather than a patch. Whatever you want an agent to change has to live inside its editable surface: its action space has to match its reasoning space. It was reasoning correctly about a system it had no way to alter, and nothing in the output looked like an error.</p>
-              </div>
-              <div class="block">
-                <h4>A prompt rule changed its method</h4>
-                <p>The agent was computing target-encoding features in-fold, which trains a model to over-trust a feature that partly contains its own answer. I added one paragraph to the prompt requiring out-of-fold computation. On the next run it explicitly reasoned about leakage and changed its approach without being told to again.</p>
-              </div>
-              <div class="block">
-                <h4>Two silent failures</h4>
-                <p>The output token limit was set too low to emit a full file, so responses truncated mid-code and read like the model refusing the task rather than running out of room. Separately, file writes were defaulting to cp1252 on Windows, which corrupted every generated file — and was invisible to the teammates working on macOS.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="Scope and limits">
-            <div class="grid2">
-              <div class="block">
-                <h4>It isn't a sandbox</h4>
-                <p>A separate working directory and a timeout are execution controls, not isolation. Running model-generated code safely is a harder problem than this solves, and the distinction is worth stating plainly rather than leaving a reader to assume otherwise.</p>
-              </div>
-              <div class="block">
-                <h4>Single seed</h4>
-                <p>+0.0019 against a seed-to-seed noise floor of roughly 0.0008 is a real margin, but one run at one seed isn't a confirmation. Repeating across seeds is the first thing I'd do with more time.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="Links">
-            <div class="block">
-              <h4>Read more</h4>
-              <p><a href="https://devpost.com/software/streamlined-doomscrolling" target="_blank" rel="noopener">Devpost submission</a></p>
-            </div>
-          </section>
+             data-sub="Autonomous experiments, with a focus on reliable model integration.">
+          <section data-tab="Overview"><div class="grid2">
+<div class="block"><h4>The challenge</h4><p>Our five-person team built an agent that <strong>proposes, codes, trains and evaluates</strong> changes to a recommender pipeline, then keeps or reverts each experiment.</p></div>
+<div class="block"><h4>My contribution</h4><p>I owned <strong>llm.py and prompts.py</strong>: prompt construction, code extraction, experiment history, retries and token tracking. The interface supports compatible providers through configuration.</p></div>
+<div class="block"><h4>The result</h4><p>Validation improved from <strong>0.6016 to 0.6035</strong> on a single-seed run using CPU and a free API tier. The improvement is preliminary; repeated runs are needed to establish reliability.</p></div>
+<div class="block"><h4>What I learned</h4><p>Different feature proposals produced identical scores because the encoder sat outside the agent's editable files. <strong>An agent needs the ability to change what it reasons about.</strong></p></div>
+</div></section>
+          <section data-tab="Details &amp; evidence"><div class="grid2">
+<div class="block"><h4>Improving the loop</h4><p>I added an out-of-fold encoding requirement to address leakage. I also identified truncated model outputs and Windows encoding issues that corrupted generated files.</p></div>
+<div class="block"><h4>Limits</h4><p>Subprocesses and timeouts control execution, but <strong>do not securely isolate generated code</strong>. The measured improvement also needs validation across seeds.</p></div>
+<div class="block"><h4>Read more</h4><p><a href="https://devpost.com/software/streamlined-doomscrolling" target="_blank" rel="noopener">Devpost submission</a></p></div>
+</div></section>
         </div>
       </div>
     </div>
@@ -498,9 +338,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div class="what">
         <h3>Beijing housing market analysis</h3>
         <p class="role">BT2102 · six-person team · R and Tableau</p>
-        <p class="result closed">Closed · academic project</p>
-        <p>A property firm wants to enter Beijing. We took a transaction dataset of several hundred thousand listings and worked out where they should buy, what they should build, when to enter, and which of the obvious conclusions the data doesn't actually support.</p>
-        <button class="opener">Read the full case</button>
+        <p class="result closed">Completed · academic project</p>
+        <p>Used <strong>R and Tableau</strong> in a six-person team to analyse Beijing housing data and recommend where to invest, what to develop and when to enter the market.</p>
+        <button class="opener">Explore the project</button>
         <div class="media">
           <button class="shot wide" data-full="assets/beijing-subway.png"><img src="assets/beijing-subway.png" alt="Subway price gap by district" loading="lazy"></button>
           <button class="shot wide" data-full="assets/beijing-forecast.png"><img src="assets/beijing-forecast.png" alt="Median price forecast for top five districts" loading="lazy"></button>
@@ -511,96 +351,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 
         <div class="detail"
              data-kicker="Analytics · R · Tableau · 2026"
-             data-sub="Where to buy, what to build, and when to enter one of the world's more volatile property markets.">
-          <section data-tab="Overview">
-            <div class="grid2">
-              <div class="block">
-                <h4>The brief</h4>
-                <p>We were advising a property firm entering Beijing across investment, development, leasing and mall management. It's a difficult market to time — new-home prices rose around 30% year-on-year at the 2016 peak and had turned negative by 2018, and four rounds of cooling measures have repeatedly cut transaction volume without ever bringing prices back down.</p>
-              </div>
-              <div class="block">
-                <h4>My section</h4>
-                <p>[FILL THIS IN — which segment was yours? Investment, Development, Leasing or Mall Management. Name it and say what you personally produced.]</p>
-              </div>
-              <div class="block">
-                <h4>What we recommended</h4>
-                <ul>
-                  <li>Subway proximity commands a price premium in every district but one.</li>
-                  <li>Chaoyang is the premium market, while Fangshan and Changping are where the value sits.</li>
-                  <li>April to June has both the lowest median price and the lowest buyer interest, so it's cheaper and less competitive at the same time.</li>
-                  <li>Build 60–89 sqm, one bathroom, two living rooms, steel-concrete composite.</li>
-                  <li>Redevelop Xicheng first, since 69% of its stock predates 2000 and it scored highest on our opportunity index at 0.71.</li>
-                </ul>
-              </div>
-              <div class="block">
-                <h4>What I'd caveat</h4>
-                <p>The t-test is run on observational data, so it establishes an association rather than a cause. Properties with those features may simply sit in better locations, and I'd want to control for district and construction year before claiming the features themselves are what drives demand.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="Method">
-            <div class="cards">
-              <div class="card">
-                <p class="kicker">Clean</p>
-                <h5>What we removed</h5>
-                <p>Error values like <code>#NAME?</code> and mojibake, entries falling outside their valid range such as a 0 in a field that only accepts 1 to 4, and rows carrying NaN or blanks.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Clean</p>
-                <h5>What we kept but didn't use</h5>
-                <p>Days-on-market was missing for roughly half the dataset. Dropping those rows would have distorted everything else we were measuring, so we kept the rows and excluded that attribute from the analysis instead, and said so rather than leaving it implied.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Scope</p>
-                <h5>Urban districts only</h5>
-                <p>The dataset covers urban districts, at roughly 6,343 people per square kilometre against about 194 in the rural ones, so we were careful not to present the findings as city-wide.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Test</p>
-                <h5>Welch two-sample t-test</h5>
-                <p>We flagged listings matching the winning feature profile in R and compared buyer interest between the two groups without assuming equal variance. The difference came out at around 2.57 more followers on average, with a confidence interval well clear of zero.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Score</p>
-                <h5>Opportunity index</h5>
-                <p>Normalised price, normalised followers and a feature-gap score, averaged together, so that a district scores highly only when it is valuable, in demand, and still short on the product type buyers want. Xicheng came out on top.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Present</p>
-                <h5>One claim per chart</h5>
-                <p>Every slide carries an observation and the decision that follows from it, so the finding travels with its implication instead of relying on whoever happens to be presenting.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="The interesting bit">
-            <div class="grid2">
-              <div class="block">
-                <h4>Three districts where elevators made properties cheaper</h4>
-                <p>Elevators carry a price premium almost everywhere in Beijing, so when three central districts came back with a negative premium, the obvious assumption was that we'd made an error somewhere in the pipeline.</p>
-              </div>
-              <div class="block">
-                <h4>It turned out not to be an error</h4>
-                <p>All three have a median construction year before 1997, which is before elevators were standard there. The housing stock in those districts is heritage low-rise hutong property, and that's what buyers are paying the premium for, so a building with an elevator in that area is likely to be a newer and less desirable one.</p>
-              </div>
-              <div class="block">
-                <h4>Why it changed the recommendation</h4>
-                <p>Instead of telling the client to chase elevator premiums across the city, we told them to avoid the central districts for that particular strategy and concentrate on the outer ones, where the stock is newer and the premium is real.</p>
-              </div>
-              <div class="block">
-                <h4>The other finding worth knowing</h4>
-                <p>Refined decoration is a grade above Simplicity, but properties with it had a <em>lower</em> median price. Renovating to Simplicity is therefore sufficient, and anything spent beyond that is money that doesn't come back in the sale price.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="Links">
-            <div class="block">
-              <h4>Read more</h4>
-              <p><a href="https://docs.google.com/presentation/d/1bfyJROEC3g_tse7mvqVqp5GuNWRhATHE-YXNbc767io/edit?usp=sharing" target="_blank" rel="noopener">Full deck</a></p>
-            </div>
-          </section>
+             data-sub="Turning housing data into decisions, with clear limits.">
+          <section data-tab="Overview"><div class="grid2">
+<div class="block"><h4>The brief</h4><p>For an academic property-market brief, our team translated transaction data into <strong>investment and development recommendations</strong> across Beijing districts.</p></div>
+<div class="block"><h4>The approach</h4><p>We cleaned the data, compared districts and property features, and used <strong>Welch t-tests, forecasts and an opportunity index</strong> to support recommendations.</p></div>
+<div class="block"><h4>The recommendation</h4><p>Our analysis identified <strong>Chaoyang for premium investment</strong> and Xicheng for redevelopment potential. The different recommendations reflect different objectives.</p></div>
+<div class="block"><h4>The lesson</h4><p>Some central districts showed a negative elevator premium. Older housing stock offered a possible explanation, reinforcing the need to <strong>question apparent patterns before recommending action</strong>. Observational comparisons do not establish causation.</p></div>
+</div></section>
+          <section data-tab="Details &amp; evidence"><div class="grid2">
+<div class="block"><h4>Data decisions</h4><p>Days-on-market was missing for roughly half the dataset. We excluded that variable rather than discarding the rows. Findings were limited to the urban districts represented.</p></div>
+<div class="block"><h4>Read more</h4><p><a href="https://docs.google.com/presentation/d/1bfyJROEC3g_tse7mvqVqp5GuNWRhATHE-YXNbc767io/edit?usp=sharing" target="_blank" rel="noopener">Full deck</a></p></div>
+</div></section>
         </div>
       </div>
     </div>
@@ -611,9 +372,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div class="what">
         <h3>Enterprise Singapore</h3>
         <p class="role">Project Analyst (intern) · Startup Ecosystem, Innovation Group</p>
-        <p class="result closed">Closed · six months</p>
-        <p>I assessed EntrePass applications, which is the work pass for foreign tech founders and investors setting up in Singapore. In practice that meant reading business plans and financial documents against the criteria and deciding whether a company held up.</p>
-        <button class="opener">Read the full case</button>
+        <p class="result closed">Completed · six months</p>
+        <p>Assessed <strong>EntrePass applications from foreign founders</strong> and ran a reappointment analysis across <strong>200+ partners</strong>. This experience changed how I evaluate business ideas—including my own.</p>
+        <button class="opener">Explore the project</button>
         <div class="media">
           <button class="shot wide" data-full="assets/esg-switch.jpg"><img src="assets/esg-switch.jpg" alt="At SWITCH, Singapore Week of Innovation and Technology" loading="lazy"></button>
           <button class="shot wide" data-full="assets/esg-office.jpg"><img src="assets/esg-office.jpg" alt="With the Enterprise Singapore team" loading="lazy"></button>
@@ -623,27 +384,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 
         <div class="detail"
              data-kicker="Government · Startup ecosystem · 2022"
-             data-sub="Six months assessing which foreign founders got to build their companies in Singapore.">
-          <section data-tab="Overview">
-            <div class="grid2">
-              <div class="block">
-                <h4>What the job actually was</h4>
-                <p>I vetted EntrePass applicants against the criteria, working from Ministry of Manpower guidance alongside each company's business plan and financial documents. Because I was the first point of contact between applying founders and investors and the agency, I spent a fair amount of the role following up on their queries, and by the end of it I was hosting those meetings independently.</p>
-              </div>
-              <div class="block">
-                <h4>The reappointment project</h4>
-                <p>I ran the 2022 EntrePass partner reappointment, which meant independently gathering and verifying information on more than two hundred partners, cleaning and organising it, and building the Excel report the decision was made from. Afterwards I wrote a process guide covering the steps, the key contacts, the KPIs and where to find things, so that whoever inherited it next year wouldn't be starting from nothing.</p>
-              </div>
-              <div class="block">
-                <h4>What reading that many applications taught me</h4>
-                <p>After a few dozen you start noticing the same gaps recurring: a market size quoted with no plausible route into it, traction that turns out on inspection to be a waitlist, a team assembled after the idea rather than around it. The applications I found most convincing were usually the ones that named their own weakest assumption before I had a chance to.</p>
-              </div>
-              <div class="block">
-                <h4>Why it still matters to me</h4>
-                <p>It's the reason nearbites has a commercialisation question attached to it rather than sitting finished as a school project, because I'd already spent six months watching what separates the two.</p>
-              </div>
-            </div>
-          </section>
+             data-sub="Learning to assess ventures—and questioning how to build my own.">
+          <section data-tab="Overview"><div class="grid2">
+<div class="block"><h4>My role</h4><p>Reviewed business plans and financial documents against EntrePass criteria, followed up with applicants, and progressed to <strong>hosting partner meetings independently</strong>.</p></div>
+<div class="block"><h4>The reappointment project</h4><p>Gathered and verified data on <strong>more than 200 partners</strong>, built the Excel analysis supporting reappointment decisions, and documented the process for the next team.</p></div>
+<div class="block"><h4>What changed for me</h4><p>Reading founders' plans taught me to distinguish <strong>a convincing story from a viable business</strong>. It also exposed the gap between evaluating someone else's ideas and building my own.</p></div>
+<div class="block"><h4>Why it matters now</h4><p>That experience shaped my ambition for nearbites: to understand the customers, assumptions and business model behind the product, and learn what it takes to make it sustainable.</p></div>
+</div></section>
         </div>
       </div>
     </div>
@@ -654,32 +401,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div class="what">
         <h3>Cross-border sourcing</h3>
         <p class="role">Sole operator</p>
-        <p class="result closed">Closed · self-funded throughout</p>
-        <p>Travelling to Japan often, I noticed that pieces sitting on the shelf there were selling at a considerable markup in Singapore. I built relationships with the shops I kept returning to, later expanded into Thailand, and ran the whole thing on my own money.</p>
-        <button class="opener">Read the full case</button>
+        <p class="result closed">Completed · self-funded throughout</p>
+        <p>Spotted a streetwear price gap between <strong>Japan and Singapore</strong> and built a self-funded sourcing business. Managed supplier relationships, pricing and inventory, later expanding into Thailand.</p>
+        <button class="opener">Explore the project</button>
         <div class="tags"><span>Sourcing</span><span>Pricing</span><span>Negotiation</span><span>Inventory</span></div>
 
-        <div class="detail" data-kicker="Self-directed · 2021" data-sub="A sourcing operation run on my own money, from secondary school through polytechnic.">
-          <section data-tab="Overview">
-            <div class="grid2">
-              <div class="block">
-                <h4>How it started</h4>
-                <p>I was travelling to Japan frequently enough to notice that certain pieces were still sitting on shelves there while the same things were selling at a significant markup back home. Because I speak conversational Japanese, it wasn't difficult to build a relationship with the staff at the shops I kept returning to, and over time they would tell me when something was due in rather than leaving me to find out on the day. That eventually expanded to a few contacts in Thailand as well.</p>
-              </div>
-              <div class="block">
-                <h4>What running it involved</h4>
-                <p>I tracked release calendars and secondary-market prices to find the spread before it closed, handled sourcing and authentication myself, set the prices, and managed the cash flow without any outside capital. Everything I bought was stock I had already paid for, so if I misread what people wanted, the loss was mine to absorb.</p>
-              </div>
-              <div class="block">
-                <h4>Where I got it wrong</h4>
-                <p>Early on I priced off what I thought a piece was worth instead of what the market had recently paid for it, and ended up sitting on that stock for months. It's probably the most useful mistake I've made, because it's the reason I now go and find the number before I form an opinion about it.</p>
-              </div>
-              <div class="block">
-                <h4>What it taught me</h4>
-                <p>Holding inventory you've paid for is a different discipline from recommending what somebody else should buy. Supplier relationships compound over time in a way that price advantages don't, and most of the margin is decided when you buy rather than when you sell.</p>
-              </div>
-            </div>
-          </section>
+        <div class="detail" data-kicker="Self-directed · 2021" data-sub="Spotting an opportunity and backing it with my own capital.">
+          <section data-tab="Overview"><div class="grid2">
+<div class="block"><h4>The opportunity</h4><p>Frequent trips to Japan exposed a price gap for the same streetwear pieces in Singapore. <strong>Conversational Japanese</strong> helped me build relationships with shop staff and source upcoming releases.</p></div>
+<div class="block"><h4>What I owned</h4><p>Handled <strong>sourcing, authentication, pricing and cash flow</strong>. With my own money tied up in inventory, every buying decision carried a real cost.</p></div>
+<div class="block"><h4>The mistake</h4><p>Pricing from my own expectations left stock unsold for months. I learned to <strong>check actual transaction prices</strong> before committing capital.</p></div>
+<div class="block"><h4>What stayed with me</h4><p>This taught me to act on opportunities and take responsibility for the outcome. It also made me want to progress from selling existing products to <strong>creating something of my own</strong>.</p></div>
+</div></section>
         </div>
       </div>
     </div>
@@ -690,9 +423,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div class="what">
         <h3>Weldy Wombats</h3>
         <p class="role">Founder · Ngee Ann Polytechnic</p>
-        <p class="result closed">Closed · handed over on graduation</p>
-        <p>A student volunteering organisation I started from nothing. Alongside running sessions with Enabling Village and Extraordinary People, we researched and pitched a proposal on making mainstream school spaces more inclusive for students with special educational needs.</p>
-        <button class="opener">Read the full case</button>
+        <p class="result closed">Completed · handed over on graduation</p>
+        <p>Founded a student volunteering organisation to build <strong>lasting community partnerships</strong>. Ran sessions with Enabling Village and Extraordinary People and helped develop a proposal for more inclusive school spaces.</p>
+        <button class="opener">Explore the project</button>
         <div class="media">
           <button class="shot wide" data-full="assets/wombats-logo.png"><img src="assets/wombats-logo.png" alt="Weldy Wombats logo" loading="lazy"></button>
           <button class="shot wide" data-full="assets/wombats-team.jpg"><img src="assets/wombats-team.jpg" alt="The Weldy Wombats team" loading="lazy"></button>
@@ -702,32 +435,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
         </div>
         <div class="tags"><span>Founded</span><span>User research</span><span>Root cause analysis</span><span>Pitching</span></div>
 
-        <div class="detail" data-kicker="Non-profit · Founded · 2021" data-sub="A volunteering organisation built from scratch, and a research project on inclusive school design.">
-          <section data-tab="Overview">
-            <div class="grid2">
-              <div class="block">
-                <h4>Why I started it</h4>
-                <p>Volunteering at my polytechnic was mostly one-off drives, which meant plenty of good intentions and very little ongoing relationship with the organisations on the other end. I wanted to build something that would still be running after the people who started it had left, so we set up partnerships with Enabling Village and Extraordinary People and ran regular art and engagement sessions with their communities rather than dropping in once.</p>
-              </div>
-              <div class="block">
-                <h4>The SEN project</h4>
-                <p>We also wanted to look at a problem rather than only at a schedule, so we began drafting a pitch deck exploring how mainstream school spaces could be made more inclusive for students with special educational needs. The point was to arrive at something a school could actually act on, not a set of sentiments about inclusion.</p>
-              </div>
-              <div class="block">
-                <h4>How we researched it</h4>
-                <ul>
-                  <li>Interviewed educators and transcribed the discussions so we were working from what they said rather than from what we remembered.</li>
-                  <li>Carried out on-site reconnaissance in schools to see how the spaces were actually being used.</li>
-                  <li>Ran root cause analyses on what we found, so that the recommendations addressed causes rather than symptoms.</li>
-                  <li>Pitched the proposal to educators and lecturers, both to raise awareness and to get the thing criticised by people who knew more than we did.</li>
-                </ul>
-              </div>
-              <div class="block">
-                <h4>What I learned</h4>
-                <p>Getting volunteers to sign up was never the hard part. Getting them to come back was, and it depended almost entirely on whether their first session felt genuinely useful rather than decorative, so we rebuilt the sessions around that. When I graduated I handed the organisation over to the next cohort, which turned out to be its own skill and one I'd only half learned.</p>
-              </div>
-            </div>
-          </section>
+        <div class="detail" data-kicker="Non-profit · Founded · 2021" data-sub="Building community partnerships that could outlast my time at polytechnic.">
+          <section data-tab="Overview"><div class="grid2">
+<div class="block"><h4>Why I started</h4><p>I wanted volunteering to build <strong>ongoing relationships</strong>. We partnered with Enabling Village and Extraordinary People to run regular art and engagement sessions.</p></div>
+<div class="block"><h4>Beyond volunteering</h4><p>We explored how mainstream schools could better support students with special educational needs through <strong>educator interviews, site visits and root cause analysis</strong>.</p></div>
+<div class="block"><h4>Turning research into action</h4><p>Our team pitched practical recommendations to educators and lecturers, inviting feedback from people who understood the problem first-hand.</p></div>
+<div class="block"><h4>What I learned</h4><p>Keeping volunteers involved required meaningful work and continuity. I <strong>handed the organisation to the next cohort</strong> on graduation, learning that starting something also means planning for others to sustain it.</p></div>
+</div></section>
         </div>
       </div>
     </div>
@@ -738,9 +452,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div class="what">
         <h3>New Balance campaign</h3>
         <p class="role">Team lead · industry partner project · top 4 of cohort</p>
-        <p class="result closed">Closed · Ngee Ann Polytechnic</p>
-        <p>New Balance had an indistinct brand image and very little pull with Gen Z in Singapore. We built a campaign called "the balance" that gave the brand a position to hold, and then carried that position through product, retail and media rather than leaving it on a slide.</p>
-        <button class="opener">Read the full case</button>
+        <p class="result closed">Completed · Ngee Ann Polytechnic</p>
+        <p>Led a <strong>top-four cohort team</strong> on a New Balance industry project. Developed <em>the balance</em>, a Gen Z campaign proposal connecting brand positioning with product, retail and media concepts.</p>
+        <button class="opener">Explore the project</button>
         <div class="media">
           <button class="shot wide" data-full="assets/nb-cover.png"><img src="assets/nb-cover.png" alt="Campaign cover" loading="lazy"></button>
           <button class="shot wide" data-full="assets/nb-logo.png"><img src="assets/nb-logo.png" alt="N X B campaign lockup" loading="lazy"></button>
@@ -751,64 +465,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 
         <div class="detail"
              data-kicker="Brand strategy · Industry partner · 2021"
-             data-sub="Giving an indistinct brand something to stand for, then turning that into a product people could buy.">
-          <section data-tab="Overview">
-            <div class="grid2">
-              <div class="block">
-                <h4>The diagnosis</h4>
-                <p>New Balance's problem in Singapore wasn't awareness, it was that nobody could say what the brand was for. The 990 line had been redesigned repeatedly since 1982 without ever settling on a signature silhouette people could attach to the brand, so there was nothing for a customer to recognise it by.</p>
-                <p>On top of that, the 565 is the heavily subsidised shoe issued to National Servicemen here, which had quietly positioned New Balance in most young Singaporeans' minds as a beater — something cheap that you wear until it falls apart. That's a local problem that wouldn't show up in any global brand study.</p>
-              </div>
-              <div class="block">
-                <h4>The idea</h4>
-                <p>We took the name literally and built the campaign around "the balance", using an N X B mark set as a cross, with gender equality as the cause the brand would advocate for. It was framed as a position the brand holds rather than a campaign that ends, and we built it on the 550 line because that silhouette already had the Gen Z recognition the 990 didn't.</p>
-              </div>
-              <div class="block">
-                <h4>Why that cause</h4>
-                <p>New Balance already had sustainability commitments in place through its Green Leaf line and its 2025 material targets, so sustainability wouldn't have differentiated them from anyone else in the category. Gender equality was a position none of their competitors were occupying locally, and pairing it with a donation to the Singapore Women's Association gave it something concrete behind it rather than a statement.</p>
-              </div>
-              <div class="block">
-                <h4>Result</h4>
-                <p>We placed in the top four of the cohort. The thing that I think got us there was refusing to let the idea stay a slogan — we made every deliverable something a customer could either hold or do.</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-tab="The build">
-            <div class="cards">
-              <div class="card">
-                <p class="kicker">Product</p>
-                <h5>Interchangeable velcro panels</h5>
-                <p>The N on the side of the 550 becomes a velcro panel, with ten designs so one pair changes with the wearer instead of being replaced. The N X B mark sits on the heel, in a red and ivory colourway.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Retail</p>
-                <h5>A shoebox on Orchard Road</h5>
-                <p>A three-week pop-up in a shipping container styled as an oversized shoebox, open 11am to 10pm, with the 550s displayed in the centre and the ten velcro designs in glass cases alongside the story of how each came about.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Retail</p>
-                <h5>Design your own, in VR</h5>
-                <p>Visitors design a personalised velcro panel, scan it into a VR station to see it on the 550s, then submit it to an online public vote, with vouchers for the people who vote. It turns a browse into a reason to come back to the website.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Retail</p>
-                <h5>The card wall</h5>
-                <p>Write what you want changed about gender equality on a card and paste it to the display stand, and New Balance donates a dollar for every card. You leave with an upcycled tote, which then does the advertising for you.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Partner</p>
-                <h5>Nail wraps with NODSPARK</h5>
-                <p>A co-branded nail wrap kit and in-booth service, which extends the campaign to a product that isn't footwear and reaches an audience the shoe alone wouldn't.</p>
-              </div>
-              <div class="card">
-                <p class="kicker">Media</p>
-                <h5>Commercial and social</h5>
-                <p>Two storyboarded scenarios — a woman dismissed in a meeting until a colleague backs her, and a child meeting a Santa who turns out to be a woman — plus behind-the-scenes content on the upcycling process as a soft launch for the 550s.</p>
-              </div>
-            </div>
-            <p class="note">The campaign was structured across owned, earned, paid and converged media, with each element given its own objective rather than being treated as general awareness.</p>
-          </section>
+             data-sub="A campaign proposal connecting positioning with customer experiences.">
+          <section data-tab="Overview"><div class="grid2">
+<div class="block"><h4>The brief</h4><p>Our team explored how New Balance could strengthen its relevance to <strong>Gen Z in Singapore</strong>, taking local brand perceptions into account.</p></div>
+<div class="block"><h4>The idea</h4><p>We proposed <em>the balance</em>, a gender-equality campaign built around the 550 silhouette and an N X B identity.</p></div>
+<div class="block"><h4>Making it tangible</h4><p>Concepts included <strong>interchangeable shoe panels, a shoebox pop-up and participatory retail experiences</strong>, supported by social content and proposed partnerships.</p></div>
+<div class="block"><h4>The result</h4><p>Our proposal placed in the <strong>top four of the cohort</strong>. I learned to connect a brand idea to experiences customers could understand and engage with. This was a campaign proposal, not a launched campaign.</p></div>
+</div></section>
         </div>
       </div>
     </div>
@@ -819,9 +482,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div class="what">
         <h3>Business School orientation camp</h3>
         <p class="role">Student coordinator · Ngee Ann Polytechnic</p>
-        <p class="result closed">Closed · ran for the incoming cohort</p>
-        <p>I coordinated the School of Business orientation camp, which meant weekly committee meetings across a full year. We had almost no mentor oversight, so the committee carried both the autonomy and the responsibility for everything that happened.</p>
-        <button class="opener">Read the full case</button>
+        <p class="result closed">Completed · ran for the incoming cohort</p>
+        <p>Coordinated a year-long orientation effort with <strong>minimal mentor oversight</strong>. Helped fund the camp through original merchandise and developed activities with the student committee.</p>
+        <button class="opener">Explore the project</button>
         <div class="media">
           <button class="shot wide" data-full="assets/orientation-tee.png"><img src="assets/orientation-tee.png" alt="Camp shirt design in progress in Photoshop" loading="lazy"></button>
           <button class="shot wide" data-full="assets/orientation-team.jpg"><img src="assets/orientation-team.jpg" alt="The camp committee" loading="lazy"></button>
@@ -829,27 +492,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
         <div class="tags"><span>Event operations</span><span>Fundraising</span><span>Merchandise</span><span>Photoshop</span></div>
 
         <div class="detail" data-kicker="Student leadership · Ngee Ann Polytechnic · 2020"
-             data-sub="A year of weekly meetings, a self-funded budget, and no mentor to escalate to.">
-          <section data-tab="Overview">
-            <div class="grid2">
-              <div class="block">
-                <h4>What made it different</h4>
-                <p>I'd led things before, but always with someone more senior to check the work. Here there was effectively no supervising mentor, which meant the committee had full autonomy over the camp and full responsibility for it at the same time. If something wasn't decided, it was because we hadn't decided it.</p>
-              </div>
-              <div class="block">
-                <h4>Funding it ourselves</h4>
-                <p>A year before the camp itself we designed, indented and marketed an original run of shirts to raise the money the camp needed. I did the artwork in Photoshop and we handled the order and the selling ourselves. The proceeds paid for the camp identities and financed the games.</p>
-              </div>
-              <div class="block">
-                <h4>Building the programme</h4>
-                <p>We devised our own games and activities rather than reusing the previous year's, and trialled them with the committee first so we knew which ones actually worked with a group before we ran them on the cohort.</p>
-              </div>
-              <div class="block">
-                <h4>What I took from it</h4>
-                <p>Sustaining a committee across a year of weekly meetings is a different problem from running an event on the day. Most of the work is keeping people invested in something that is still eleven months away, and the shirt project helped with that as much as it helped the budget, because it gave everyone something finished to point at early on.</p>
-              </div>
-            </div>
-          </section>
+             data-sub="Keeping a student-led team moving from planning to delivery.">
+          <section data-tab="Overview"><div class="grid2">
+<div class="block"><h4>Taking ownership</h4><p>Coordinated <strong>weekly committee meetings over a year</strong>, keeping decisions and preparation moving with limited mentor oversight.</p></div>
+<div class="block"><h4>Funding the camp</h4><p>Designed shirt artwork in Photoshop and helped organise production and sales. Proceeds funded camp identities and games.</p></div>
+<div class="block"><h4>Building the programme</h4><p>Our committee created and <strong>trialled original activities</strong> before running them for the incoming cohort.</p></div>
+<div class="block"><h4>What I learned</h4><p>Long projects need visible progress. The shirt project gave the team an early result and helped sustain commitment well before camp day.</p></div>
+</div></section>
         </div>
       </div>
     </div>
@@ -860,9 +509,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div class="what">
         <h3>Overseas exchange, Chiang Mai</h3>
         <p class="role">Patrol Leader · Dragon Scouts, Gan Eng Seng School</p>
-        <p class="result closed">Closed · first time leading a group overseas</p>
-        <p>I led my unit on an exchange to Chiang Mai as the main student leader, working directly under the accompanying teachers. I coordinated transport, accounted for attendance throughout, and was responsible for safety and the activity programme, which in practice meant being the person the rest of the unit came to before it occurred to anyone to find a teacher.</p>
-        <button class="opener">Read the full case</button>
+        <p class="result closed">Completed · first time leading a group overseas</p>
+        <p>Led my scout unit on an overseas exchange to Chiang Mai, coordinating <strong>transport, attendance, safety and activities</strong> under the accompanying teachers.</p>
+        <button class="opener">Explore the project</button>
         <div class="media">
           <button class="shot wide" data-full="assets/scouts-chiangmai.jpg"><img src="assets/scouts-chiangmai.jpg" alt="With the host scout unit in Chiang Mai" loading="lazy"></button>
           <button class="shot" data-full="assets/scouts-patrol.jpg"><img src="assets/scouts-patrol.jpg" alt="My patrol in Singapore" loading="lazy"></button>
@@ -870,27 +519,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
         <div class="tags"><span>Logistics</span><span>Safety</span><span>Overseas</span><span>Event organising</span></div>
 
         <div class="detail" data-kicker="Scouting · Gan Eng Seng School · 2016–2019"
-             data-sub="Running a unit abroad at sixteen, with teachers present but not in charge of the detail.">
-          <section data-tab="Overview">
-            <div class="grid2">
-              <div class="block">
-                <h4>The exchange</h4>
-                <p>We travelled to Chiang Mai to train and camp alongside a Thai scout unit. I was the main student leader for the trip, which meant the logistics sat with me: getting everyone between places, keeping an accurate count of who was where, and making sure the activity programme actually ran to time once we were on the ground and the plan met reality.</p>
-              </div>
-              <div class="block">
-                <h4>Being responsible for people</h4>
-                <p>Safety was the part that changed how I think about organising anything. When the people you are accountable for are your own age and in an unfamiliar country, the job stops being about the schedule and becomes about noticing early when something is going wrong, which is a habit I have used in every project since.</p>
-              </div>
-              <div class="block">
-                <h4>The rest of the CCA</h4>
-                <p>I was with Dragon Scouts from 2016 to 2019 and was appointed Patrol Leader in 2018, the same year I received the General Service Award (Bronze). Alongside the exchange I organised unit events including the annual campfire, and was selected for the school's National Day marching contingent.</p>
-              </div>
-              <div class="block">
-                <h4>Why it's still here</h4>
-                <p>It is the oldest thing on this page by some distance, and I have kept it because it is where I first found out that I would rather be the person organising something than the person waiting to be told what the plan is.</p>
-              </div>
-            </div>
-          </section>
+             data-sub="Learning to take responsibility for people in an unfamiliar setting.">
+          <section data-tab="Overview"><div class="grid2">
+<div class="block"><h4>My responsibility</h4><p>As the main student leader, I coordinated logistics and activities while our unit trained and camped with Thai scouts.</p></div>
+<div class="block"><h4>The lesson</h4><p>Being accountable for peers in an unfamiliar country taught me to <strong>notice problems early and take responsibility</strong> for people as well as plans.</p></div>
+<div class="block"><h4>Wider involvement</h4><p>Appointed Patrol Leader in 2018 and received the <strong>General Service Award (Bronze)</strong>. Also helped organise unit events, including the annual campfire.</p></div>
+</div></section>
         </div>
       </div>
     </div>
@@ -899,21 +533,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 
   <section class="sec" id="work">
     <h2>What I do</h2>
-    <p class="lede">Three things I'm useful for, in the order I'd back myself on them.</p>
+    <p class="lede">What I can contribute to a startup team.</p>
     <div class="cols">
       <div class="col">
         <h3>Ship products</h3>
-        <p>I went from having never written React Native to a tested app running on real devices in twelve weeks, and picking up an unfamiliar stack against a deadline is the skill I trust most in myself.</p>
+        <p>Learned React Native and co-built a tested app in <strong>twelve weeks</strong>. I pick up unfamiliar tools, work through bugs and turn feedback into improvements.</p>
         <ul><li>React Native, Expo, JavaScript, Java</li><li>Appwrite: auth, storage, functions</li><li>Jest, integration and acceptance testing, GitHub Actions</li></ul>
       </div>
       <div class="col">
         <h3>Work with data</h3>
-        <p>Business Analytics with a minor in Quantitative Finance. I'm comfortable taking a messy source file through to the one number a decision actually turns on, and saying what it doesn't support.</p>
+        <p>Turn messy data into <strong>clear recommendations</strong>, with the assumptions and limitations made explicit.</p>
         <ul><li>Python, NumPy, R (dplyr, tidyverse), SQL</li><li>Tableau, Power BI, advanced Excel</li><li>Hypothesis testing, econometrics, forecasting</li></ul>
       </div>
       <div class="col">
         <h3>Start things</h3>
-        <p>Two ventures, one non-profit and one product, none of which were handed to me. I'm comfortable being the person who moves first when there isn't a brief yet.</p>
+        <p>From sourcing streetwear to founding a volunteering organisation and co-building nearbites, I <strong>take initiative and follow through</strong>.</p>
         <ul><li>English fluent, Mandarin and Japanese conversational</li><li>Sourcing, negotiation, partnerships</li><li>Pitching to industry, educators and government</li></ul>
       </div>
     </div>
@@ -995,13 +629,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
     </div>
   </section>
 
-  <section class="sec">
-    <div class="now">
-      <h2>Now</h2>
-      <p>I'm working on taking nearbites from a campus project to something that survives contact with a market, and spending most of my spare reading on how AI-native products are actually being built.</p>
-      <p>I'm looking for an internship or an early-stage role where I'd be close enough to the product decisions to see how they get made, ideally somewhere that isn't Singapore, since it's the only ecosystem I've ever built inside.</p>
-    </div>
-  </section>
 
   <footer id="contact">
     <div class="contact">
