@@ -28,43 +28,80 @@ a{color:inherit}
 .mast nav a{text-decoration:none;color:var(--ink-soft);padding-bottom:2px;border-bottom:1px solid transparent}
 .mast nav a:hover{color:var(--ink);border-bottom-color:var(--mark)}
 
-.hero{padding:clamp(40px,7vw,78px) 0 clamp(24px,3.4vw,38px)}
-.hero h1.name{font-family:Spectral,Georgia,serif;font-weight:200;text-transform:uppercase;
-  font-size:clamp(3rem,13.5vw,9.4rem);line-height:.92;letter-spacing:.005em;
-  margin:0 0 clamp(28px,5vw,58px);max-width:none}
-
-/* ---------- coursework ---------- */
-.crs{display:grid;grid-template-columns:210px 1fr;gap:0;border:1px solid var(--rule);
-  border-radius:4px;background:var(--paper-hi);overflow:hidden}
-.rail{display:flex;flex-direction:column;border-right:1px solid var(--rule);padding:12px 0}
-.rail button{text-align:left;background:none;border:0;border-left:2px solid transparent;
-  padding:11px 18px;cursor:pointer;font-family:Archivo;font-size:14.5px;color:var(--ink-soft);line-height:1.3}
-.rail button:hover{color:var(--ink)}
-.rail button[aria-selected="true"]{border-left-color:var(--mark);background:var(--paper);color:var(--ink);font-weight:500}
-.rail small{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
-  letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);margin-top:3px}
-.rail button[aria-selected="true"] small{color:var(--live)}
-.termpanel{padding:20px 24px 8px}
-.termhead{display:flex;justify-content:space-between;gap:16px;font-family:"IBM Plex Mono",monospace;
-  font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);
-  padding-bottom:11px;border-bottom:1px solid var(--rule)}
-.mod{display:grid;grid-template-columns:96px 1fr auto;gap:16px;padding:12px 0;
-  border-bottom:1px solid var(--rule);align-items:baseline}
-.mod:last-child{border-bottom:0}
-.mod .code{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--live)}
-.mod .nm{font-size:.96rem;color:var(--ink)}
-.mod .u{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint);white-space:nowrap}
-.mod.ta .code{color:var(--mark)}
-.mod.ta .nm{color:var(--ink-soft)}
-.crs-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin:0 0 16px;flex-wrap:wrap}
-.crs-top .tally{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);text-align:right}
-.crs-top .tally b{display:block;font-family:Spectral,Georgia,serif;font-weight:300;
-  font-size:2.3rem;line-height:1;color:var(--ink);letter-spacing:-.01em}
-.terms{display:none}
-.hero-body{display:grid;grid-template-columns:1fr 210px;gap:40px;align-items:start}
+.hero{padding:clamp(34px,5.5vw,62px) 0 clamp(24px,3.4vw,38px)}
+.eyebrow{display:flex;align-items:center;gap:13px;margin:0 0 20px;
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-faint)}
+.eyebrow::before{content:"";width:30px;height:1px;background:var(--mark);flex:none}
+.hero h1.name{font-family:Archivo,system-ui,-apple-system,sans-serif;font-weight:600;
+  font-size:clamp(2.45rem,6.1vw,4rem);line-height:1.03;letter-spacing:-.035em;
+  margin:0 0 clamp(20px,2.8vw,26px);max-width:15ch}
+.namerule{position:relative;height:1px;background:var(--rule);margin:0 0 clamp(26px,3.6vw,34px)}
+.namerule::before{content:"";position:absolute;left:0;top:0;width:88px;height:1px;background:var(--mark)}
+.hero-body{display:grid;grid-template-columns:1fr 268px;gap:46px;align-items:start}
 .hero-body p{max-width:58ch;color:var(--ink-soft);font-size:1.05rem;margin:0 0 16px}
 .hero-body p:last-of-type{margin-bottom:0}
 .portrait{width:100%;border-radius:3px;border:1px solid var(--rule);display:block}
+
+/* ---------- coursework ---------- */
+.crs-top{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin:0 0 26px;flex-wrap:wrap}
+.crs-intro h2{font-family:Archivo;font-weight:600;font-size:14px;margin:0 0 6px}
+.crs-intro .lede{margin:0;color:var(--ink-faint);font-size:14.5px}
+.crs-meter{flex:1 1 250px;max-width:320px}
+.crs-meter .figs{display:flex;justify-content:flex-end;align-items:baseline;gap:7px;
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-faint);margin:0 0 9px}
+.crs-meter .figs b{font-family:Spectral,Georgia,serif;font-weight:300;font-size:2.2rem;
+  line-height:1;color:var(--ink);letter-spacing:-.01em}
+.bar{display:flex;height:3px;background:var(--rule);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--live);transition:width .45s ease}
+.bar i.now{background:var(--mark);opacity:.6}
+.crs-meter .legend{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-faint);text-align:right;margin-top:8px;min-height:13px}
+.terms{display:none}
+
+.spine{position:relative;display:flex;overflow-x:auto;margin:0 0 22px;padding-bottom:2px}
+.spine::before{content:"";position:absolute;left:0;right:0;top:4px;height:1px;background:var(--rule)}
+.spine::-webkit-scrollbar{height:5px}
+.spine::-webkit-scrollbar-thumb{background:var(--rule);border-radius:3px}
+.spine button{position:relative;flex:1 0 auto;min-width:152px;max-width:230px;text-align:left;
+  background:none;border:0;padding:0 20px 6px 0;cursor:pointer;font-family:Archivo}
+.spine .pin{display:block;width:9px;height:9px;border-radius:50%;background:var(--paper);
+  border:1px solid var(--rule);margin:0 0 13px;position:relative;z-index:1}
+.spine .lbl{display:block;font-size:14.5px;color:var(--ink-soft);line-height:1.25}
+.spine .met{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-faint);margin-top:4px}
+.spine button:hover .lbl{color:var(--ink)}
+.spine button:hover .pin{border-color:var(--ink-faint)}
+.spine button[aria-selected="true"] .pin{background:var(--mark);border-color:var(--mark);
+  box-shadow:0 0 0 3px rgba(200,129,31,.2)}
+.spine button[aria-selected="true"] .lbl{color:var(--ink);font-weight:500}
+.spine button[aria-selected="true"] .met{color:var(--mark)}
+
+.termcard{border:1px solid var(--rule);border-radius:4px;background:var(--paper-hi);overflow:hidden}
+.termhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;
+  padding:16px 22px;background:var(--paper);border-bottom:1px solid var(--rule)}
+.termhead .thl{display:flex;flex-wrap:wrap;align-items:center;gap:10px;flex:1 1 auto}
+.termhead .h{font-family:Archivo;font-weight:600;font-size:15px}
+.termhead .st{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--live);border:1px solid var(--rule);border-radius:100px;
+  padding:3px 9px;background:var(--paper-hi)}
+.termhead .tnote{flex-basis:100%;border:0;padding:0;max-width:64ch;margin:4px 0 0;
+  font-family:Spectral,Georgia,serif;font-style:italic;font-size:1rem;color:var(--ink-soft)}
+.termhead .cnt{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-faint);padding-top:3px;white-space:nowrap}
+.mods{display:grid;grid-template-columns:1fr 1fr}
+.mods.one{grid-template-columns:1fr}
+.mod{display:grid;grid-template-columns:1fr auto;grid-template-areas:"code units" "name name";
+  gap:3px 12px;padding:13px 22px;border-top:1px solid var(--rule);align-items:baseline}
+.mods > .mod:nth-child(1),.mods > .mod:nth-child(2){border-top:0}
+.mod:nth-child(odd){border-right:1px solid var(--rule)}
+.mod .code{grid-area:code;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;color:var(--live)}
+.mod .u{grid-area:units;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);white-space:nowrap}
+.mod .nm{grid-area:name;font-size:.97rem;color:var(--ink);line-height:1.35}
+.mod.ta{background:var(--paper)}
+.mod.ta .code,.mod.ta .u{color:var(--mark)}
+.mod.ta .nm{color:var(--ink-soft)}
 .standing{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:9px 16px 9px 13px;
   background:var(--paper-hi);border:1px solid var(--rule);border-radius:100px;
   font-size:14.5px;color:var(--ink-soft);text-decoration:none}
@@ -80,6 +117,7 @@ a{color:inherit}
 
 .row{display:grid;grid-template-columns:104px 1fr;gap:0 28px;padding:28px 0;border-top:1px solid var(--rule)}
 .row:last-of-type{border-bottom:1px solid var(--rule)}
+.row > *{min-width:0}
 .when{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-faint);padding-top:4px;font-variant-numeric:tabular-nums}
 .what h3{font-family:Spectral,Georgia,serif;font-weight:400;font-size:1.5rem;line-height:1.2;margin:0 0 3px}
 .role{font-size:14px;color:var(--ink-faint);margin:0 0 10px}
@@ -161,14 +199,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 @media (max-width:760px){
   body{font-size:16px}
   .wrap{padding:0 20px}
-  .hero-body{grid-template-columns:1fr;gap:22px}
-  .crs{grid-template-columns:1fr}
-  .rail{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--rule);padding:0}
-  .rail button{white-space:nowrap;border-left:0;border-bottom:2px solid transparent;padding:12px 14px}
-  .rail button[aria-selected="true"]{border-left-color:transparent;border-bottom-color:var(--mark)}
-  .termpanel{padding:16px 16px 4px}
-  .mod{grid-template-columns:84px 1fr auto;gap:10px}
-  .portrait{max-width:190px}
+  .eyebrow{font-size:10.5px;letter-spacing:.09em;gap:10px}
+  .eyebrow::before{width:22px}
+  .hero-body{grid-template-columns:1fr;gap:24px}
+  .portrait{max-width:240px}
+  .crs-meter{max-width:none;flex-basis:100%}
+  .crs-meter .figs,.crs-meter .legend{justify-content:flex-start;text-align:left}
+  .spine button{min-width:134px;padding-right:16px}
+  .mods{grid-template-columns:1fr}
+  .mod{padding:12px 16px}
+  .mods > .mod:nth-child(2){border-top:1px solid var(--rule)}
+  .mod:nth-child(odd){border-right:0}
+  .termhead{padding:14px 16px}
   .row{grid-template-columns:1fr;gap:0}
   .when{padding:0 0 8px}
   .cols,.grid2,.cards{grid-template-columns:1fr;gap:22px}
@@ -188,7 +230,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
   </header>
 
   <section class="hero">
+    <p class="eyebrow">NUS &middot; Business Analytics &middot; Class of 2029</p>
     <h1 class="name">Lim Ze Ning</h1>
+    <div class="namerule"></div>
     <div class="hero-body">
       <div>
         <p>I'm in my second year at NUS, reading Business Analytics with a minor in Quantitative Finance. Before that I spent three years at Ngee Ann Polytechnic and six months at Enterprise Singapore, where I assessed applications from foreign founders who wanted to start companies in Singapore and saw a few hundred of them make their case.</p>
@@ -877,22 +921,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 
   <section class="sec" id="courses">
     <div class="crs-top">
-      <div>
-        <h2 style="font-family:Archivo;font-weight:600;font-size:14px;margin:0 0 6px">Coursework</h2>
-        <p class="lede" style="margin:0">BSc Business Analytics, minor in Quantitative Finance. NUS, 2025–2029.</p>
+      <div class="crs-intro">
+        <h2>Coursework</h2>
+        <p class="lede">BSc Business Analytics, minor in Quantitative Finance. NUS, 2025–2029.</p>
       </div>
-      <div class="tally"><b id="crsUnits">0</b>units completed</div>
+      <div class="crs-meter">
+        <p class="figs"><b id="crsUnits">0</b> of <span id="crsTarget">160</span> units done</p>
+        <div class="bar"><i id="barDone" style="width:0"></i><i class="now" id="barNow" style="width:0"></i></div>
+        <p class="legend" id="crsProg"></p>
+      </div>
     </div>
 
     <!-- =========================================================
          EDITING COURSEWORK
          One <div class="term"> per semester. data-term is the label,
-         data-status is the small line under it.
+         data-status is the short line under it (kept to one or two words),
+         and the optional data-note is the italic line shown in the panel
+         header — use it for exchanges, notes, anything term-wide.
          Each module is one <div class="mod"> with a code, a name and units.
          Add class "ta" to a .mod to mark it as teaching, not taking.
          Units are totalled automatically — don't hand-count them.
          ========================================================= -->
-    <div class="terms" id="terms">
+    <div class="terms" id="terms" data-target="160">
 
       <div class="term" data-term="Year 2 · Sem 1" data-status="In progress">
         <div class="mod"><span class="code">ST2334</span><span class="nm">Probability and Statistics</span><span class="u">4 units</span></div>
@@ -915,7 +965,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
         <div class="mod"><span class="code">CFG1004</span><span class="nm">Financial Readiness for Young Professionals</span><span class="u">2 units</span></div>
       </div>
 
-      <div class="term" data-term="Year 1 · Winter" data-status="Completed">
+      <div class="term" data-term="Year 1 · Winter" data-status="Exchange"
+           data-note="Winter exchange at Korea University, Seoul.">
         <div class="mod"><span class="code">MA1521</span><span class="nm">Calculus for Computing</span><span class="u">4 units</span></div>
       </div>
 
@@ -929,12 +980,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
 
     </div>
 
-    <div class="crs">
-      <div class="rail" id="crsRail" role="tablist"></div>
-      <div class="termpanel">
-        <div class="termhead"><span id="crsLabel"></span><span id="crsCount"></span></div>
-        <div id="crsBody"></div>
+    <div class="spine" id="crsSpine" role="tablist"></div>
+
+    <div class="termcard">
+      <div class="termhead">
+        <div class="thl">
+          <span class="h" id="crsTitle"></span>
+          <span class="st" id="crsStatus"></span>
+          <p class="tnote" id="crsNote"></p>
+        </div>
+        <span class="cnt" id="crsCount"></span>
       </div>
+      <div class="mods" id="crsBody"></div>
     </div>
   </section>
 
@@ -1020,9 +1077,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       openShot(shot.dataset.full||img.src,img.alt); return; }
     if(e.target.closest('.lb')){ closeShot(); }
   });
-  /* coursework */
-  var terms=[].slice.call(document.querySelectorAll('#terms .term')),
-      rail=document.getElementById('crsRail');
+  /* coursework — timeline spine + term panel */
+  var termsWrap=document.getElementById('terms'),
+      terms=[].slice.call(document.querySelectorAll('#terms .term')).reverse(),
+      spine=document.getElementById('crsSpine');
   function unitsOf(t){
     var n=0;
     t.querySelectorAll('.mod').forEach(function(m){
@@ -1031,28 +1089,40 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
     });
     return n;
   }
+  function running(t){ return (t.dataset.status||'').toLowerCase().indexOf('progress')>-1; }
   function showTerm(i){
-    rail.querySelectorAll('button').forEach(function(b,j){
+    spine.querySelectorAll('button').forEach(function(b,j){
       b.setAttribute('aria-selected', j===i?'true':'false');
     });
-    var t=terms[i];
-    document.getElementById('crsLabel').textContent=t.dataset.term+' · '+t.dataset.status;
-    var mods=t.querySelectorAll('.mod').length;
-    document.getElementById('crsCount').textContent=unitsOf(t)+' units / '+mods+' modules';
-    document.getElementById('crsBody').innerHTML=t.innerHTML;
+    var t=terms[i], mods=t.querySelectorAll('.mod').length, note=t.dataset.note||'';
+    document.getElementById('crsTitle').textContent=t.dataset.term;
+    document.getElementById('crsStatus').textContent=t.dataset.status||'';
+    var n=document.getElementById('crsNote');
+    n.textContent=note; n.style.display=note?'':'none';
+    document.getElementById('crsCount').textContent=unitsOf(t)+' units · '+mods+(mods===1?' module':' modules');
+    var body=document.getElementById('crsBody');
+    body.classList.toggle('one', mods===1);
+    body.innerHTML=t.innerHTML;
   }
   if(terms.length){
-    var done=0;
+    var target=parseFloat(termsWrap.dataset.target)||160, done=0, live=0;
     terms.forEach(function(t,i){
-      if((t.dataset.status||'').toLowerCase().indexOf('progress')===-1) done+=unitsOf(t);
+      if(running(t)) live+=unitsOf(t); else done+=unitsOf(t);
       var b=document.createElement('button');
       b.setAttribute('role','tab');
-      b.innerHTML=t.dataset.term+'<small>'+t.dataset.status+'</small>';
+      b.innerHTML='<span class="pin"></span><span class="lbl">'+t.dataset.term+
+                  '</span><span class="met">'+unitsOf(t)+' units · '+(t.dataset.status||'')+'</span>';
       b.addEventListener('click',function(){showTerm(i)});
-      rail.appendChild(b);
+      spine.appendChild(b);
     });
     document.getElementById('crsUnits').textContent=done;
-    showTerm(0);
+    document.getElementById('crsTarget').textContent=target;
+    document.getElementById('crsProg').textContent=live?live+' units in progress':'';
+    var pd=Math.min(100,done/target*100);
+    document.getElementById('barDone').style.width=pd+'%';
+    document.getElementById('barNow').style.width=Math.max(0,Math.min(100-pd,live/target*100))+'%';
+    showTerm(terms.length-1);
+    spine.scrollLeft=spine.scrollWidth;
   }
 
   document.addEventListener('keydown',function(e){
