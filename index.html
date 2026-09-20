@@ -122,7 +122,6 @@ a{color:inherit}
 .what h3{font-family:Spectral,Georgia,serif;font-weight:400;font-size:1.5rem;line-height:1.2;margin:0 0 3px}
 .role{font-size:14px;color:var(--ink-faint);margin:0 0 10px}
 .what strong,.block strong,.col strong,.hero-body strong{font-weight:600;color:var(--ink)}
-.now strong{font-family:Archivo,sans-serif;font-size:.88em;font-weight:600}
 .what p{margin:0 0 13px;max-width:var(--measure);color:var(--ink-soft);font-size:.985rem}
 .result{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--live);margin:0 0 11px}
 .result.closed{color:var(--ink-faint)}
@@ -185,11 +184,28 @@ a{color:inherit}
 .col ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:.96rem}
 .col li{margin-bottom:5px}
 
-.now{background:var(--ink);color:var(--paper-hi);border-radius:4px;padding:clamp(28px,4.5vw,46px)}
-.now h2{font-family:Archivo;font-weight:600;font-size:14px;margin:0 0 18px;opacity:.62}
-.now p{max-width:62ch;font-family:Spectral,Georgia,serif;font-weight:300;font-size:clamp(1.15rem,2.3vw,1.45rem);line-height:1.5;margin:0 0 14px}
-.now p:last-child{margin-bottom:0}
-.now a{color:#F0C575}
+/* An open editorial layout keeps the motivation part of the page. */
+#why-noc{padding:10px 0 clamp(32px,4vw,48px);scroll-margin-top:24px}
+.noc-story{position:relative;display:grid;grid-template-columns:260px minmax(0,1fr);
+  gap:48px;border-top:1px solid var(--rule);padding:32px 0 0}
+.noc-story::before{content:"";position:absolute;left:0;top:-1px;width:88px;height:1px;background:var(--mark)}
+.noc-heading h2{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;
+  line-height:1.5;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 16px}
+.noc-heading .noc-title{font-family:Spectral,Georgia,serif;font-size:clamp(1.9rem,3.2vw,2.35rem);
+  font-weight:400;line-height:1.17;letter-spacing:-.025em;color:var(--ink);margin:0;max-width:13ch}
+.noc-title em{font-weight:400;color:#916019}
+.noc-copy p{font-family:Archivo,system-ui,sans-serif;font-size:1rem;line-height:1.8;
+  color:var(--ink-soft);margin:0 0 18px;max-width:65ch}
+.noc-copy p:last-child{margin-bottom:0}
+.noc-copy strong{font-family:inherit;font-size:inherit;line-height:inherit;font-weight:600;color:var(--ink)}
+.standing{margin-top:20px;font-size:13px;line-height:1.5;max-width:100%;padding:9px 13px}
+@media (max-width:760px){
+  .noc-story{grid-template-columns:1fr;gap:22px;padding-top:26px}
+  .noc-heading .noc-title{max-width:25ch;font-size:2rem}
+  .noc-heading h2{margin-bottom:12px}
+  .noc-copy p{font-size:.98rem;line-height:1.75}
+  #why-noc{padding-top:8px}
+}
 
 footer{padding:46px 0 60px;border-top:1px solid var(--rule);margin-top:clamp(26px,3.6vw,42px)}
 .contact{display:flex;flex-wrap:wrap;gap:12px 34px;margin-bottom:22px}
@@ -239,17 +255,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offse
       <div>
         <p>I'm a second-year <strong>Business Analytics student at NUS</strong>, with a minor in Quantitative Finance. I like spotting opportunities in everyday life and doing something about them.</p>
         <p>That started with sourcing streetwear from <strong>Japan for buyers in Singapore</strong>. At Enterprise Singapore, assessing founders' business plans pushed me to think beyond a good opportunity to what makes a business viable. Now, I'm applying both instincts to <strong>nearbites</strong>: helping students find surplus food on campus before it goes to waste.</p>
+        <a class="standing" href="#nearbites"><span class="dot"></span> Building nearbites · exploring its commercial potential</a>
       </div>
       <img class="portrait" src="assets/portrait.jpg" alt="Lim Ze Ning" loading="lazy">
     </div>
-    <a class="standing" href="#nearbites"><span class="dot"></span> Building nearbites · exploring its commercial potential</a>
   </section>
 
   <section class="sec" id="why-noc">
-    <div class="now">
-      <h2>Why NOC</h2>
+    <div class="noc-story">
+      <div class="noc-heading">
+        <h2>Why NOC</h2>
+        <p class="noc-title">From spotting opportunities to <em>building a business.</em></p>
+      </div>
+      <div class="noc-copy">
       <p>My early ventures taught me to spot opportunities and act, but their business models were straightforward. At Enterprise Singapore, assessing EntrePass applications and analysing more than 200 partners showed me entrepreneurship from the other side. I learned to distinguish <strong>a compelling pitch from a viable business</strong>—and realised how much I still had to learn about building one.</p>
       <p>nearbites is my first step towards <strong>turning an idea into a product people can use</strong>. Through NOC, I want to work alongside founders in an overseas startup, learn how they test demand and make product decisions, and bring those lessons back to my own ventures. I want to develop the judgement to take an idea from imagination to <strong>a business that earns its place in people's lives</strong>.</p>
+    </div>
     </div>
   </section>
 
